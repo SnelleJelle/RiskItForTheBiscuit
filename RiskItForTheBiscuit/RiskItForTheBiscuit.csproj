@@ -127,6 +127,10 @@
   <ItemGroup>
     <None Include="Resources\Swords50x50.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Attack.wav" />
+    <Content Include="Resources\Select.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

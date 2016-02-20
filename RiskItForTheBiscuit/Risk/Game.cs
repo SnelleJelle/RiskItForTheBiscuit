@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,9 @@ namespace RiskItForTheBiscuit.Risk
     {
         public static Size GameSize = new Size(1431, 839);
         private const string xmlFileDir = @"../../Resources/world_map_risk.xml";
+        private SoundPlayer attackSound = new SoundPlayer(@"../../Resources/Attack.wav");
+        private SoundPlayer selectSound = new SoundPlayer(@"../../Resources/Select.wav");
+
 
         public List<Continent> Continents { get; set; }
         public PictureBox pbDrawingField { get; set; }
@@ -210,10 +214,26 @@ namespace RiskItForTheBiscuit.Risk
             }
         }
 
+        private Territory getTerritoryFromClick(Point click)
+        {
+            foreach (Continent continent in this.Continents)
+            {
+                foreach (Territory territory in continent)
+                {
+                    if (territory.ClickRegion.Contains(click))
+                    {
+                        return territory;
+                    }
+                }
+            }
+            return null;
+        }
+
         private void select(Territory newlySelectedTerritory)
         {
             if (newlySelectedTerritory != null)
             {
+                selectSound.Play();
                 if (SelectedTerritory != null)
                 {
                     SelectedTerritory.IsSelected = false;
@@ -237,27 +257,26 @@ namespace RiskItForTheBiscuit.Risk
             pbDrawingField.Refresh();
         }
 
+        private void attack(Territory newlySelectedTerritory)
+        {
+            if (newlySelectedTerritory != null && SelectedTerritory.GetAttackableNeighbours().Contains(newlySelectedTerritory))
+            {
+                attackSound.Play();
+            }
+            pbDrawingField.Refresh();
+        }
+
         public void Click(MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                Point clickLocation = e.Location;
-                foreach (Continent continent in this.Continents)
-                {
-                    foreach (Territory territory in continent)
-                    {
-                        if (territory.ClickRegion.Contains(clickLocation))
-                        {
-                            select(territory);
-                            return;
-                        }
-                    }
-                }
-                select(null);
+                Territory clicked = getTerritoryFromClick(e.Location);
+                select(clicked);
             }
             else // e.Button == MouseButtons.Left
             {
-
+                Territory clicked = getTerritoryFromClick(e.Location);
+                attack(clicked);
             }
         }
     }
