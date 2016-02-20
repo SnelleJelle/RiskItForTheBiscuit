@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<map name="risk world map">
+  <continents>
+    <continent name="South America">
+      <territory>
+        <territory.name>Venezuela</territory.name>
+        <territory.labelpoint>(294, 434)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Peru</territory.name>
+        <territory.labelpoint>(288, 572)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Brazil</territory.name>
+        <territory.labelpoint>(384, 536)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Argentina</territory.name>
+        <territory.labelpoint>(296, 674)</territory.labelpoint>
+      </territory>
+    </continent>
+    <continent name="North America">
+      <territory>
+        <territory.name>Alaska</territory.name>
+        <territory.labelpoint>(56, 90)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Alberta</territory.name>
+        <territory.labelpoint>(150, 150)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Central America</territory.name>
+        <territory.labelpoint>(154, 366)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Eastern USA</territory.name>
+        <territory.labelpoint>(196, 274)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Greenland</territory.name>
+        <territory.labelpoint>(484, 38)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>NorthWest USA</territory.name>
+        <territory.labelpoint>(160, 100)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Ontario</territory.name>
+        <territory.labelpoint>(244, 164)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Quebec</territory.name>
+        <territory.labelpoint>(338, 158)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Western USA</territory.name>
+        <territory.labelpoint>(112, 228)</territory.labelpoint>
+      </territory>
+    </continent>
+    <continent name="Afrika">
+      <territory>
+        <territory.name>Congo</territory.name>
+        <territory.labelpoint>(720, 484)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>East Afrika</territory.name>
+        <territory.labelpoint>(790, 436)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Egypt</territory.name>
+        <territory.labelpoint>(724, 316)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Madagascar</territory.name>
+        <territory.labelpoint>(842, 594)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>North Afrika</territory.name>
+        <territory.labelpoint>(618, 382)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>South Afrika</territory.name>
+        <territory.labelpoint>(718, 612)</territory.labelpoint>
+      </territory>
+    </continent>
+    <continent name="Europe">
+      <territory>
+        <territory.name>G. Britain</territory.name>
+        <territory.labelpoint>(578, 152)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Iceland</territory.name>
+        <territory.labelpoint>(586, 92)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>N. Europe</territory.name>
+        <territory.labelpoint>(670, 168)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Scandinavia</territory.name>
+        <territory.labelpoint>(666, 64)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>S. Europe</territory.name>
+        <territory.labelpoint>(692, 222)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Ukraine</territory.name>
+        <territory.labelpoint>(802, 146)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>W. Europe</territory.name>
+        <territory.labelpoint>(558, 236)</territory.labelpoint>
+      </territory>
+    </continent>
+    <continent name="Australia">
+      <territory>
+        <territory.name>E. Australia</territory.name>
+        <territory.labelpoint>(1270, 682)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Indonesia</territory.name>
+        <territory.labelpoint>(1142, 534)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>New Guinea</territory.name>
+        <territory.labelpoint>(1304, 570)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>W. Australia</territory.name>
+        <territory.labelpoint>(1190, 722)</territory.labelpoint>
+      </territory>
+    </continent>
+    <continent name="Asia">
+      <territory>
+        <territory.name>Afghanistan</territory.name>
+        <territory.labelpoint>(890, 206)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>China</territory.name>
+        <territory.labelpoint>(1110, 282)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>India</territory.name>
+        <territory.labelpoint>(1004, 330)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Irkutsk</territory.name>
+        <territory.labelpoint>(1066, 152)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Japan</territory.name>
+        <territory.labelpoint>(1258, 264)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Kamchatka</territory.name>
+        <territory.labelpoint>(1246, 92)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Middle East</territory.name>
+        <territory.labelpoint>(828, 278)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Mongolia</territory.name>
+        <territory.labelpoint>(1098, 202)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Siam</territory.name>
+        <territory.labelpoint>(1118, 378)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Siberia</territory.name>
+        <territory.labelpoint>(964, 70)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Ural</territory.name>
+        <territory.labelpoint>(914, 122)</territory.labelpoint>
+      </territory>
+      <territory>
+        <territory.name>Yakutsk</territory.name>
+        <territory.labelpoint>(1100, 88)</territory.labelpoint>
+      </territory>
+    </continent>
+  </continents>
+  <allneighbours>
+    <neighbours>
+      <neighbour name="Venezuela" />
+      <neighbour name="Peru" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Venezuela" />
+      <neighbour name="Brazil" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Venezuela" />
+      <neighbour name="Central America" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Peru" />
+      <neighbour name="Brazil" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Peru" />
+      <neighbour name="Argentina" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Brazil" />
+      <neighbour name="Argentina" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Brazil" />
+      <neighbour name="North Afrika" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Alaska" />
+      <neighbour name="NorthWest USA" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Alaska" />
+      <neighbour name="Alberta" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Alberta" />
+      <neighbour name="NorthWest USA" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Alberta" />
+      <neighbour name="Ontario" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Alberta" />
+      <neighbour name="Western USA" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Central America" />
+      <neighbour name="Western USA" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Central America" />
+      <neighbour name="Eastern USA" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Eastern USA" />
+      <neighbour name="Western USA" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Eastern USA" />
+      <neighbour name="Ontario" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Eastern USA" />
+      <neighbour name="Quebec" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Greenland" />
+      <neighbour name="NorthWest USA" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Greenland" />
+      <neighbour name="Ontario" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Greenland" />
+      <neighbour name="Quebec" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Greenland" />
+      <neighbour name="Iceland" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="NorthWest USA" />
+      <neighbour name="Ontario" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Ontario" />
+      <neighbour name="Western USA" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Ontario" />
+      <neighbour name="Quebec" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Congo" />
+      <neighbour name="North Afrika" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Congo" />
+      <neighbour name="East Afrika" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Congo" />
+      <neighbour name="South Afrika" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="East Afrika" />
+      <neighbour name="Egypt" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="East Afrika" />
+      <neighbour name="North Afrika" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="East Afrika" />
+      <neighbour name="South Afrika" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="East Afrika" />
+      <neighbour name="Madagascar" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Egypt" />
+      <neighbour name="North Afrika" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Egypt" />
+      <neighbour name="S. Europe" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Madagascar" />
+      <neighbour name="South Afrika" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="G. Britain" />
+      <neighbour name="Iceland" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="G. Britain" />
+      <neighbour name="W. Europe" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="G. Britain" />
+      <neighbour name="Scandinavia" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Iceland" />
+      <neighbour name="Scandinavia" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="N. Europe" />
+      <neighbour name="W. Europe" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="N. Europe" />
+      <neighbour name="Scandinavia" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="N. Europe" />
+      <neighbour name="Ukraine" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="N. Europe" />
+      <neighbour name="S. Europe" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Scandinavia" />
+      <neighbour name="Ukraine" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="S. Europe" />
+      <neighbour name="W. Europe" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="S. Europe" />
+      <neighbour name="Ukraine" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="W. Australia" />
+      <neighbour name="E. Australia" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="W. Australia" />
+      <neighbour name="Indonesia" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="New Guinea" />
+      <neighbour name="Indonesia" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="New Guinea" />
+      <neighbour name="E. Australia" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Siam" />
+      <neighbour name="Indonesia" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="East Afrika" />
+      <neighbour name="Middle East" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Egypt" />
+      <neighbour name="Middle East" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="S. Europe" />
+      <neighbour name="Middle East" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Ukraine" />
+      <neighbour name="Middle East" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Ukraine" />
+      <neighbour name="Afghanistan" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Ukraine" />
+      <neighbour name="Ural" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Siberia" />
+      <neighbour name="Ural" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="China" />
+      <neighbour name="Ural" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="China" />
+      <neighbour name="Siam" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="China" />
+      <neighbour name="India" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="China" />
+      <neighbour name="Afghanistan" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="China" />
+      <neighbour name="Siberia" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="China" />
+      <neighbour name="Mongolia" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Japan" />
+      <neighbour name="Mongolia" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Japan" />
+      <neighbour name="Kamchatka" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Afghanistan" />
+      <neighbour name="Middle East" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Afghanistan" />
+      <neighbour name="India" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Afghanistan" />
+      <neighbour name="Ural" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="India" />
+      <neighbour name="Siam" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="India" />
+      <neighbour name="Middle East" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Yakutsk" />
+      <neighbour name="Siberia" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Yakutsk" />
+      <neighbour name="Irkutsk" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Yakutsk" />
+      <neighbour name="Kamchatka" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Mongolia" />
+      <neighbour name="Irkutsk" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Mongolia" />
+      <neighbour name="Kamchatka" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Siberia" />
+      <neighbour name="Irkutsk" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Kamchatka" />
+      <neighbour name="Irkutsk" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Mongolia" />
+      <neighbour name="Siberia" />
+    </neighbours>
+    <neighbours>
+      <neighbour name="Kamchatka" />
+      <neighbour name="Alaska" />
+    </neighbours>
+  </allneighbours>
+</map>
