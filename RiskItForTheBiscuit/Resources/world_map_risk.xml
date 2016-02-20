@@ -4,181 +4,181 @@
     <continent name="South America">
       <territory>
         <territory.name>Venezuela</territory.name>
-        <territory.labelpoint>(294, 434)</territory.labelpoint>
+        <territory.labelpoint>(226, 478)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Peru</territory.name>
-        <territory.labelpoint>(288, 572)</territory.labelpoint>
+        <territory.labelpoint>(262, 596)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Brazil</territory.name>
-        <territory.labelpoint>(384, 536)</territory.labelpoint>
+        <territory.labelpoint>(358, 556)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Argentina</territory.name>
-        <territory.labelpoint>(296, 674)</territory.labelpoint>
+        <territory.labelpoint>(250, 696)</territory.labelpoint>
       </territory>
     </continent>
     <continent name="North America">
       <territory>
         <territory.name>Alaska</territory.name>
-        <territory.labelpoint>(56, 90)</territory.labelpoint>
+        <territory.labelpoint>(50, 150)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Alberta</territory.name>
-        <territory.labelpoint>(150, 150)</territory.labelpoint>
+        <territory.labelpoint>(172, 220)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Central America</territory.name>
-        <territory.labelpoint>(154, 366)</territory.labelpoint>
+        <territory.labelpoint>(186, 398)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Eastern USA</territory.name>
-        <territory.labelpoint>(196, 274)</territory.labelpoint>
+        <territory.labelpoint>(268, 324)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Greenland</territory.name>
-        <territory.labelpoint>(484, 38)</territory.labelpoint>
+        <territory.labelpoint>(456, 96)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>NorthWest USA</territory.name>
-        <territory.labelpoint>(160, 100)</territory.labelpoint>
+        <territory.labelpoint>(160, 162)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Ontario</territory.name>
-        <territory.labelpoint>(244, 164)</territory.labelpoint>
+        <territory.labelpoint>(270, 232)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Quebec</territory.name>
-        <territory.labelpoint>(338, 158)</territory.labelpoint>
+        <territory.labelpoint>(364, 234)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Western USA</territory.name>
-        <territory.labelpoint>(112, 228)</territory.labelpoint>
+        <territory.labelpoint>(176, 288)</territory.labelpoint>
       </territory>
     </continent>
     <continent name="Afrika">
       <territory>
         <territory.name>Congo</territory.name>
-        <territory.labelpoint>(720, 484)</territory.labelpoint>
+        <territory.labelpoint>(586, 608)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>East Afrika</territory.name>
-        <territory.labelpoint>(790, 436)</territory.labelpoint>
+        <territory.labelpoint>(658, 556)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Egypt</territory.name>
-        <territory.labelpoint>(724, 316)</territory.labelpoint>
+        <territory.labelpoint>(606, 448)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Madagascar</territory.name>
-        <territory.labelpoint>(842, 594)</territory.labelpoint>
+        <territory.labelpoint>(706, 712)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>North Afrika</territory.name>
-        <territory.labelpoint>(618, 382)</territory.labelpoint>
+        <territory.labelpoint>(514, 504)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>South Afrika</territory.name>
-        <territory.labelpoint>(718, 612)</territory.labelpoint>
+        <territory.labelpoint>(568, 706)</territory.labelpoint>
       </territory>
     </continent>
     <continent name="Europe">
       <territory>
         <territory.name>G. Britain</territory.name>
-        <territory.labelpoint>(578, 152)</territory.labelpoint>
+        <territory.labelpoint>(490, 252)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Iceland</territory.name>
-        <territory.labelpoint>(586, 92)</territory.labelpoint>
+        <territory.labelpoint>(488, 184)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>N. Europe</territory.name>
-        <territory.labelpoint>(670, 168)</territory.labelpoint>
+        <territory.labelpoint>(566, 274)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Scandinavia</territory.name>
-        <territory.labelpoint>(666, 64)</territory.labelpoint>
+        <territory.labelpoint>(564, 152)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>S. Europe</territory.name>
-        <territory.labelpoint>(692, 222)</territory.labelpoint>
+        <territory.labelpoint>(576, 332)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Ukraine</territory.name>
-        <territory.labelpoint>(802, 146)</territory.labelpoint>
+        <territory.labelpoint>(684, 234)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>W. Europe</territory.name>
-        <territory.labelpoint>(558, 236)</territory.labelpoint>
+        <territory.labelpoint>(474, 318)</territory.labelpoint>
       </territory>
     </continent>
     <continent name="Australia">
       <territory>
         <territory.name>E. Australia</territory.name>
-        <territory.labelpoint>(1270, 682)</territory.labelpoint>
+        <territory.labelpoint>(1040, 666)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Indonesia</territory.name>
-        <territory.labelpoint>(1142, 534)</territory.labelpoint>
+        <territory.labelpoint>(940, 556)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>New Guinea</territory.name>
-        <territory.labelpoint>(1304, 570)</territory.labelpoint>
+        <territory.labelpoint>(1108, 578)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>W. Australia</territory.name>
-        <territory.labelpoint>(1190, 722)</territory.labelpoint>
+        <territory.labelpoint>(970, 706)</territory.labelpoint>
       </territory>
     </continent>
     <continent name="Asia">
       <territory>
         <territory.name>Afghanistan</territory.name>
-        <territory.labelpoint>(890, 206)</territory.labelpoint>
+        <territory.labelpoint>(774, 304)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>China</territory.name>
-        <territory.labelpoint>(1110, 282)</territory.labelpoint>
+        <territory.labelpoint>(928, 372)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>India</territory.name>
-        <territory.labelpoint>(1004, 330)</territory.labelpoint>
+        <territory.labelpoint>(848, 450)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Irkutsk</territory.name>
-        <territory.labelpoint>(1066, 152)</territory.labelpoint>
+        <territory.labelpoint>(978, 226)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Japan</territory.name>
-        <territory.labelpoint>(1258, 264)</territory.labelpoint>
+        <territory.labelpoint>(1092, 332)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Kamchatka</territory.name>
-        <territory.labelpoint>(1246, 92)</territory.labelpoint>
+        <territory.labelpoint>(1132, 158)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Middle East</territory.name>
-        <territory.labelpoint>(828, 278)</territory.labelpoint>
+        <territory.labelpoint>(704, 404)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Mongolia</territory.name>
-        <territory.labelpoint>(1098, 202)</territory.labelpoint>
+        <territory.labelpoint>(990, 292)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Siam</territory.name>
-        <territory.labelpoint>(1118, 378)</territory.labelpoint>
+        <territory.labelpoint>(944, 462)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Siberia</territory.name>
-        <territory.labelpoint>(964, 70)</territory.labelpoint>
+        <territory.labelpoint>(898, 132)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Ural</territory.name>
-        <territory.labelpoint>(914, 122)</territory.labelpoint>
+        <territory.labelpoint>(818, 222)</territory.labelpoint>
       </territory>
       <territory>
         <territory.name>Yakutsk</territory.name>
-        <territory.labelpoint>(1100, 88)</territory.labelpoint>
+        <territory.labelpoint>(1018, 146)</territory.labelpoint>
       </territory>
     </continent>
   </continents>

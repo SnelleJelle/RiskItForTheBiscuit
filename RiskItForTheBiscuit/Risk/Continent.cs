@@ -15,10 +15,10 @@ namespace RiskItForTheBiscuit.Risk
         {
             this.Name = name;
         }
-        
+
         public bool IsCompletelyOwnedBy(Player player)
         {
-            foreach(Territory region in this)
+            foreach (Territory region in this)
             {
                 if (!player.OwnedRegions.Contains(region))
                 {
@@ -30,7 +30,7 @@ namespace RiskItForTheBiscuit.Risk
 
         public void AddTerritories(params Territory[] territories)
         {
-            foreach(Territory territory in territories)
+            foreach (Territory territory in territories)
             {
                 this.Add(territory);
                 territory.CalculateClickRegions();
@@ -44,20 +44,7 @@ namespace RiskItForTheBiscuit.Risk
 
         public void Draw(Graphics g)
         {
-            Territory selected = null;
-            foreach(Territory territory in this)
-            {               
-                if (territory.IsSelected)
-                {
-                    selected = territory;
-                }
-                territory.DrawLabel(g);
-            }
-
-            if (selected != null)
-            {
-                selected.Neighbours.ForEach(t => t.DrawNeighbourBorder(g));
-            }
+            this.ForEach(t => t.DrawLabel(g));
         }
 
         public override string ToString()

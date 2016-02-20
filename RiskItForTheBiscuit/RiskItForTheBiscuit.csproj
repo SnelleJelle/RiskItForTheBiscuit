@@ -78,6 +78,8 @@
     </Compile>
     <Compile Include="Risk\Continent.cs" />
     <Compile Include="Risk\Drawing\GraphicsExtension.cs" />
+    <Compile Include="Risk\Extension\ShuffleExtension.cs" />
+    <Compile Include="Risk\Placement\Placer.cs" />
     <Compile Include="Risk\Player.cs" />
     <Compile Include="Risk\Territory.cs" />
     <Compile Include="Risk\RegionBuilder.cs" />
@@ -85,11 +87,6 @@
     <EmbeddedResource Include="frmRisk.resx">
       <DependentUpon>frmRisk.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -106,17 +103,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\risk_map1431x839.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\world_map_risk.xml">
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <None Include="Resources\sea.jpg" />
-    <Content Include="Resources\Storage\risk_map_original.svg" />
-    <None Include="Resources\Shield35x35.png" />
-    <EmbeddedResource Include="Resources\Storage\risk_map_edited.svg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -126,7 +118,15 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\risk_world_map1264x839.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shield35x35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Swords50x50.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

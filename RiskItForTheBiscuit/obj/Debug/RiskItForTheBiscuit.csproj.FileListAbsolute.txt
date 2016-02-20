@@ -11,3 +11,12 @@ C:\Users\Jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\bin\Debu
 C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit - Copy\RiskItForTheBiscuit\bin\Debug\RiskItForTheBiscuit.exe.config
 C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit - Copy\RiskItForTheBiscuit\obj\Debug\RiskItForTheBiscuit.exe
 C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit - Copy\RiskItForTheBiscuit\obj\Debug\RiskItForTheBiscuit.pdb
+C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuit\bin\Debug\RiskItForTheBiscuit.exe.config
+C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuit\obj\Debug\RiskItForTheBiscuit.exe
+C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuit\obj\Debug\RiskItForTheBiscuit.pdb
+C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuit\obj\Debug\RiskItForTheBiscuit.csprojResolveAssemblyReference.cache
+C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuit\obj\Debug\RiskItForTheBiscuit.frmRisk.resources
+C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuit\obj\Debug\RiskItForTheBiscuit.csproj.GenerateResource.Cache
+C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuit\bin\Debug\RiskItForTheBiscuit.exe
+C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuit\bin\Debug\RiskItForTheBiscuit.pdb
+C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuit\obj\Debug\RiskItForTheBiscuit.Properties.Resources.resources

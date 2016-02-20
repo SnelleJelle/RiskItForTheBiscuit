@@ -16,7 +16,7 @@ namespace RiskItForTheBiscuit.Risk
         public string Name { get; set; }
         public Player Owner { get; set; }
         public Rectangle ClickRegion { get; private set; }
-        public uint NrOfSoldiers { get; set; } = 1;        
+        public uint NrOfSoldiers { get; set; } = 1;
         public bool IsSelectedNeighbour { get; set; } = false;
 
         #region Drawing
@@ -50,25 +50,35 @@ namespace RiskItForTheBiscuit.Risk
                 labelSize.Height + 40);
         }
 
+        public List<Territory> GetAttackableNeighbours()
+        {
+            return new List<Territory>(Neighbours.Where(t => t.Owner != this.Owner));
+        }
+
+        public List<Territory> getOwnedNeighbours()
+        {
+            return new List<Territory>(Neighbours.Where(t => t.Owner == this.Owner));
+        }
+
         public void AddNeighbours(params Territory[] territories)
         {
-            foreach(Territory territory in territories)
+            foreach (Territory territory in territories)
             {
                 if (territory != this && territory.Name != this.Name)
                 {
                     Neighbours.Add(territory);
-                }                
-            }            
+                }
+            }
         }
 
         public void DrawLabel(Graphics g)
         {
-            g.DrawLabel(LabelCoordinates, Name, NrOfSoldiers, Color.LightBlue, IsSelected);            
-        }              
+            g.DrawLabel(LabelCoordinates, Name, NrOfSoldiers, Owner.PlayerColor, IsSelected);
+        }
 
-        public void DrawNeighbourBorder(Graphics g)
+        public void DrawAttackable(Graphics g)
         {
-            g.DrawNeighbourBorder(Name, LabelCoordinates);
+            g.DrawAttackable(Name, LabelCoordinates);
         }
         public override string ToString()
         {

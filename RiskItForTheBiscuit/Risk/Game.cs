@@ -19,20 +19,33 @@ namespace RiskItForTheBiscuit.Risk
         private const string xmlFileDir = @"../../Resources/world_map_risk.xml";
 
         public List<Continent> Continents { get; set; }
-        private PictureBox pbDrawingField;
-        private Territory selectedTerritory;
-        private Image backGround = Properties.Resources.risk_map1431x839;
-
+        public PictureBox pbDrawingField { get; set; }
+        public Territory SelectedTerritory { get; set; }
+        //bg
+        private Image backGround = Properties.Resources.risk_world_map1264x839;
 
         public List<Player> Players { get; set; } = new List<Player>();
         public string MapName { get; set; }
 
-        public Game(PictureBox pb)
+        public Game(PictureBox pb, List<Player> players)
         {
             //Continents = RegionBuilder.Build();
             Continents = loadMapDataFromXml();
             this.pbDrawingField = pb;
-            //saveMapDataToXml();
+            this.Players = players;
+            randomizeOwnership();
+            //saveMapDataToXml();//
+        }
+
+        private void randomizeOwnership()
+        {
+            var players = Players.Shuffle();
+            int index = 0;
+            foreach (Territory territory in GetAllTerritories().Shuffle())
+            {
+                territory.Owner = players[index];
+                index = (index + 1) % 3;
+            }
         }
 
         private List<Continent> loadMapDataFromXml()
@@ -46,13 +59,13 @@ namespace RiskItForTheBiscuit.Risk
             foreach (XElement xmlContinent in xmlContinents)
             {
                 Continent continent = new Continent(xmlContinent.Attribute("name").Value);
-                
-                foreach(XElement xmlTerritory in xmlContinent.Elements())
+
+                foreach (XElement xmlTerritory in xmlContinent.Elements())
                 {
                     string name = xmlTerritory.Element("territory.name").Value;
                     string labelPointValue = xmlTerritory.Element("territory.labelpoint").Value;
                     Territory territory = new Territory(name)
-                        { LabelCoordinates = toPoint(labelPointValue) };
+                    { LabelCoordinates = toPoint(labelPointValue) };
 
                     continent.AddTerritories(territory);
                 }
@@ -60,14 +73,14 @@ namespace RiskItForTheBiscuit.Risk
             }
 
             XElement allNeighbours = map.Element("allneighbours");
-            foreach(XElement xmlNeighbours in allNeighbours.Elements())
-            {               
+            foreach (XElement xmlNeighbours in allNeighbours.Elements())
+            {
                 Territory[] territories = new Territory[2];
                 uint index = 0;
                 foreach (XElement xmlNeighbour in xmlNeighbours.Elements())
                 {
                     string neighbourName = xmlNeighbour.Attribute("name").Value;
-                    Territory t = this.GetTerritoryFrom(neighbourName, continents);
+                    Territory t = this.GetTerritoryFromContinent(neighbourName, continents);
                     territories[index] = t;
                     index++;
                 }
@@ -76,7 +89,7 @@ namespace RiskItForTheBiscuit.Risk
             }
 
             return continents;
-        }        
+        }
 
         private Point toPoint(string s)
         {
@@ -93,14 +106,14 @@ namespace RiskItForTheBiscuit.Risk
             string directory = @"../../resources";
             string imagesDirectory = directory + @"/images";
             string xmlString = "\n<continents>\n";
-            foreach(Continent continent in Continents)
+            foreach (Continent continent in Continents)
             {
                 string imgDirectory = imagesDirectory + @"/" + continent.Name;
                 xmlString += "\t<continent name=\"" + continent.Name + "\">\n";
-                foreach(Territory territory in continent)
+                foreach (Territory territory in continent)
                 {
                     xmlString += "\t\t<territory>\n" +
-                    "\t\t\t<territory.name>" + territory.Name + "</territory.name>\n" +                    
+                    "\t\t\t<territory.name>" + territory.Name + "</territory.name>\n" +
                     "\t\t\t<territory.labelpoint>" + String.Format("({0}, {1})", territory.LabelCoordinates.X, territory.LabelCoordinates.Y) + "</territory.labelpoint>\n" +
                     "\t\t</territory>\n";
                 }
@@ -112,9 +125,9 @@ namespace RiskItForTheBiscuit.Risk
 
             xmlString += "<allneighbours>\n";
             foreach (Continent continent in Continents)
-            {               
+            {
                 foreach (Territory territory in continent)
-                {                    
+                {
                     foreach (Territory neighbour in territory.Neighbours)
                     {
                         Tuple<Territory, Territory> neighbours = new Tuple<Territory, Territory>(territory, neighbour);
@@ -134,16 +147,35 @@ namespace RiskItForTheBiscuit.Risk
             //File.AppendAllText(directory + @"/world_map_risk.xml", xmlString);
         }
 
+        public List<Territory> GetAllTerritories()
+        {
+            List<Territory> allTerritories = new List<Territory>();
+            Continents.ForEach(c => c.ForEach(t => allTerritories.Add(t)));
+            return allTerritories;
+        }
+
         public Continent GetContinent(string name)
         {
             return Continents.First(s => s.Name == name);
         }
 
-        public Territory GetTerritoryFrom(string name, List<Continent> continents)
+        public Continent GetContinentFromTerritory(Territory territory)
         {
-            foreach(Continent continent in continents)
+            foreach (Continent continent in Continents)
             {
-                foreach(Territory territory in continent)
+                if (continent.Contains(territory))
+                {
+                    return continent;
+                }
+            }
+            return null;
+        }
+
+        public Territory GetTerritoryFromContinent(string name, List<Continent> continents)
+        {
+            foreach (Continent continent in continents)
+            {
+                foreach (Territory territory in continent)
                 {
                     if (territory.Name == name)
                     {
@@ -160,47 +192,47 @@ namespace RiskItForTheBiscuit.Risk
             g.SmoothingMode = SmoothingMode.HighQuality;
 
             //bg
-            g.DrawFullImg(Properties.Resources.risk_map1431x839);
+            g.DrawFullImg(backGround);
 
             //continents
-            foreach (Continent continent in Continents.Where(c => !c.Contains(selectedTerritory)))
+            foreach (Continent continent in Continents.Where(c => !c.Contains(SelectedTerritory)))
             {
                 continent.Draw(g);
             }
 
-            if (selectedTerritory != null)
-            {  
-                foreach (Territory territory in Continents.First(c => c.Contains(selectedTerritory)))
+            if (SelectedTerritory != null)
+            {
+                foreach (Territory territory in Continents.First(c => c.Contains(SelectedTerritory)))
                 {
                     territory.DrawLabel(g);
                 }
-                selectedTerritory.Neighbours.ForEach(n => n.DrawNeighbourBorder(g));
-            }            
+                SelectedTerritory.GetAttackableNeighbours().ForEach(n => n.DrawAttackable(g));
+            }
         }
 
         private void select(Territory newlySelectedTerritory)
         {
             if (newlySelectedTerritory != null)
             {
-                if (selectedTerritory != null)
+                if (SelectedTerritory != null)
                 {
-                    selectedTerritory.IsSelected = false;
+                    SelectedTerritory.IsSelected = false;
                     newlySelectedTerritory.IsSelected = true;
-                    selectedTerritory = newlySelectedTerritory;
+                    SelectedTerritory = newlySelectedTerritory;
                 }
                 else // selectedTerritory == null
                 {
                     newlySelectedTerritory.IsSelected = true;
-                    selectedTerritory = newlySelectedTerritory;
-                }                
+                    SelectedTerritory = newlySelectedTerritory;
+                }
             }
             else // newlySelectedTerritory == null
             {
-                if (selectedTerritory != null)
+                if (SelectedTerritory != null)
                 {
-                    selectedTerritory.IsSelected = false;
+                    SelectedTerritory.IsSelected = false;
                 }
-                selectedTerritory = null;
+                SelectedTerritory = null;
             }
             pbDrawingField.Refresh();
         }
@@ -218,7 +250,7 @@ namespace RiskItForTheBiscuit.Risk
                         {
                             select(territory);
                             return;
-                        }                        
+                        }
                     }
                 }
                 select(null);

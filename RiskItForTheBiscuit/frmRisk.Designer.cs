@@ -66,15 +66,14 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::RiskItForTheBiscuit.Properties.Resources.Shield35x35;
+            this.pictureBox1.Image = global::RiskItForTheBiscuit.Properties.Resources.Swords50x50;
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
             // pbMap
             // 
-            this.pbMap.BackColor = System.Drawing.Color.SkyBlue;
-            this.pbMap.BackgroundImage = global::RiskItForTheBiscuit.Properties.Resources.sea;
+            this.pbMap.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.pbMap, "pbMap");
             this.pbMap.Name = "pbMap";
             this.pbMap.TabStop = false;
@@ -85,6 +84,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MidnightBlue;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pbMap);
             this.Controls.Add(this.mainMenuStrip);
