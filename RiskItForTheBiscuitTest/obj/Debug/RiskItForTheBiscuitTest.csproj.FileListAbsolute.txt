@@ -6,3 +6,4 @@ C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItFo
 C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuitTest\obj\Debug\RiskItForTheBiscuitTest.pdb
 C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuitTest\bin\Debug\RiskItForTheBiscuit.exe
 C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuitTest\bin\Debug\RiskItForTheBiscuit.pdb
+C:\Users\Jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml

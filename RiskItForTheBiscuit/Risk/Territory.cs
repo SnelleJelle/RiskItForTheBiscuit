@@ -11,17 +11,18 @@ using System.Windows.Forms;
 namespace RiskItForTheBiscuit.Risk
 {
     public class Territory
-    {
-        public List<Territory> Neighbours { get; set; } = new List<Territory>();
+    {        
         public string Name { get; set; }
         public Player Owner { get; set; }
-        public Rectangle ClickRegion { get; private set; }
+        public Continent ParentContinent { get; set; }
+        public List<Territory> Neighbours { get; set; } = new List<Territory>();
         public uint NrOfSoldiers { get; set; } = 1;
         public bool IsSelectedNeighbour { get; set; } = false;
 
         #region Drawing
-        public Point LabelCoordinates { get; set; }
-        public Point[] Border { get; set; }
+        public List<Point> Border { get; set; }
+        public Point LabelCoordinates { get; set ; }
+        public Rectangle LabelRegion { get; set; }
         #endregion
 
         private bool isSelected;
@@ -41,13 +42,61 @@ namespace RiskItForTheBiscuit.Risk
             IsSelected = false;
         }
 
-        public void CalculateClickRegions()
+        private bool IsInPolygon(Point[] poly, Point click)
+        {
+            bool isInside = false;
+            for (int i = 0; i < poly.Length; i++)
+            {
+                if (LineIntersectsWidthEdge(poly[i], poly[(i + 1) % poly.Length], click))
+                {
+                    isInside = !isInside;
+                }
+            }
+            return isInside;
+        }
+
+        private bool LineIntersectsWidthEdge(Point edge1, Point edge2, Point click)
+        {
+            Point point2 = new Point(click.X + 1920, click.Y + 1080);
+            float dx12 = (float)(edge2.X - edge1.X);
+            float dy12 = (float)(edge2.Y - edge1.Y);
+            float dx34 = (float)(point2.X - click.X);
+            float dy34 = (float)(point2.Y - click.Y);
+
+            float denominator = (dy12 * dx34 - dx12 * dy34);
+
+            float t1 =
+                (float)((edge1.X - click.X) * dy34 + (click.Y - edge1.Y) * dx34)
+                    / denominator;
+            if (float.IsInfinity(t1))
+            {
+                return false;
+            }
+
+            float t2 =
+            (float)((click.X - edge1.X) * dy12 + (edge1.Y - click.Y) * dx12)
+                / -denominator;
+
+            return ((t1 >= 0) && (t1 <= 1) &&
+            (t2 >= 0) && (t2 <= 1));
+        }
+
+        public void CalclateLabelSize()
         {
             Size labelSize = TextRenderer.MeasureText(Name, GraphicsExtension.labelFont);
-            ClickRegion = new Rectangle(LabelCoordinates.X - 10,
+            LabelRegion = new Rectangle(LabelCoordinates.X - 10,
                 LabelCoordinates.Y - 20,
                 labelSize.Width + 50,
-                labelSize.Height + 40);
+                labelSize.Height + 40);            
+        }
+
+        private List<Point> getCornersFromRectangle(Rectangle r)
+        {
+            return new List<Point>() {
+                new Point(r.X, r.Y),
+                new Point(r.X + r.Width, r.Y),
+                new Point(r.X + r.Width, r.Y + r.Height),
+                new Point(r.X, r.Y + r.Height) };
         }
 
         public List<Territory> GetAttackableNeighbours()
@@ -58,6 +107,18 @@ namespace RiskItForTheBiscuit.Risk
         public List<Territory> getOwnedNeighbours()
         {
             return new List<Territory>(Neighbours.Where(t => t.Owner == this.Owner));
+        }
+
+        public bool IsClicked(Point click)
+        {
+            if (LabelRegion.Contains(click)){
+                return true;
+            }
+            else if(IsInPolygon(Border.ToArray(), click))
+            {
+                return true;
+            }
+            return false;
         }
 
         public void AddNeighbours(params Territory[] territories)
@@ -80,6 +141,7 @@ namespace RiskItForTheBiscuit.Risk
         {
             g.DrawAttackable(Name, LabelCoordinates);
         }
+
         public override string ToString()
         {
             return Name;

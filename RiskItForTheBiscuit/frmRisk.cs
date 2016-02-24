@@ -25,6 +25,9 @@ namespace RiskItForTheBiscuit
         {
             InitializeComponent();
             game = new Game(pbMap, players);
+            GameOverview overview = new GameOverview(game);
+            overview.Location = new Point(1264, 839);
+            this.Controls.Add(overview);
 
             placer = new Placer(game);
             pictureBox1.Visible = false;
@@ -32,15 +35,14 @@ namespace RiskItForTheBiscuit
 
         private void frmRisk_Load(object sender, EventArgs e)
         {
-            Debug.WriteLine(pbMap.Size);
-            Debug.WriteLine(pbMap.ClientSize);
+
         }
 
         private void pbMap_Paint(object sender, PaintEventArgs e)
         {
             game.Draw(e.Graphics);
 
-            e.Graphics.DrawString(placer.territory, GraphicsExtension.labelFont, Brushes.LimeGreen, 0, 0);
+            e.Graphics.DrawString(placer.currentTerritoryName, GraphicsExtension.labelFont, Brushes.LimeGreen, 0, 0);
         }
 
         //placement

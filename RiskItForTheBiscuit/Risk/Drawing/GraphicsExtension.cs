@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,8 @@ using System.Windows.Forms;
 
 namespace RiskItForTheBiscuit.Risk.Extension
 {
+
+    //TODO: calculate certain Classes at compile-Time for performance gain;
     public static class GraphicsExtension
     {
         public static Image shield = Properties.Resources.Shield35x35;
@@ -73,7 +76,10 @@ namespace RiskItForTheBiscuit.Risk.Extension
             borderPoints[1] = new Point(border.X, border.Y);
             borderPoints[2] = new Point(border.X, border.Y + border.Height);
             borderPoints[3] = new Point(border.X + border.Width - 10, border.Y + border.Height);
-            g.DrawLines(new Pen(Color.Red, 2f), borderPoints);
+
+            Pen dashedPen = new Pen(Color.Red, 2f);
+            dashedPen.DashStyle = DashStyle.Dash;
+            g.DrawLines(dashedPen, borderPoints);
 
             //swords
             g.DrawImage(Properties.Resources.Swords50x50, new Point(p.X + 3, p.Y - 15));

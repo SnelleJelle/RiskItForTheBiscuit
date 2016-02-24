@@ -17,15 +17,8 @@ namespace RiskItForTheBiscuit.Risk
         }
 
         public bool IsCompletelyOwnedBy(Player player)
-        {
-            foreach (Territory region in this)
-            {
-                if (!player.OwnedRegions.Contains(region))
-                {
-                    return false;
-                }
-            }
-            return true;
+        {            
+            return this.Where(t => !player.OwnedRegions.Contains(t)).Count() > 0;
         }
 
         public void AddTerritories(params Territory[] territories)
@@ -33,7 +26,8 @@ namespace RiskItForTheBiscuit.Risk
             foreach (Territory territory in territories)
             {
                 this.Add(territory);
-                territory.CalculateClickRegions();
+                territory.ParentContinent = this;
+                territory.CalclateLabelSize();
             }
         }
 

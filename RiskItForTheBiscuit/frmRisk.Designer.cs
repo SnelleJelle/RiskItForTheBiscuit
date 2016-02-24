@@ -75,6 +75,7 @@
             // 
             this.pbMap.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.pbMap, "pbMap");
+            this.pbMap.Image = global::RiskItForTheBiscuit.Properties.Resources.risk_world_map1264x839;
             this.pbMap.Name = "pbMap";
             this.pbMap.TabStop = false;
             this.pbMap.Paint += new System.Windows.Forms.PaintEventHandler(this.pbMap_Paint);
@@ -84,10 +85,11 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.MidnightBlue;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(200)))));
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pbMap);
             this.Controls.Add(this.mainMenuStrip);
+            this.KeyPreview = true;
             this.MainMenuStrip = this.mainMenuStrip;
             this.MaximizeBox = false;
             this.Name = "frmRisk";

@@ -21,11 +21,9 @@ namespace RiskItForTheBiscuit.Risk
         private SoundPlayer attackSound = new SoundPlayer(@"../../Resources/Attack.wav");
         private SoundPlayer selectSound = new SoundPlayer(@"../../Resources/Select.wav");
 
-
         public List<Continent> Continents { get; set; }
         public PictureBox pbDrawingField { get; set; }
         public Territory SelectedTerritory { get; set; }
-        //bg
         private Image backGround = Properties.Resources.risk_world_map1264x839;
 
         public List<Player> Players { get; set; } = new List<Player>();
@@ -68,8 +66,17 @@ namespace RiskItForTheBiscuit.Risk
                 {
                     string name = xmlTerritory.Element("territory.name").Value;
                     string labelPointValue = xmlTerritory.Element("territory.labelpoint").Value;
+
+                    string temp = "";
+                    try
+                    {
+                        temp = xmlTerritory.Element("territory.border").Value;
+                    }
+                    catch { }
+                    string borderPointsValue = temp;
                     Territory territory = new Territory(name)
-                    { LabelCoordinates = toPoint(labelPointValue) };
+                        { LabelCoordinates = toPoint(labelPointValue),
+                        Border = toPointList(borderPointsValue) };
 
                     continent.AddTerritories(territory);
                 }
@@ -102,6 +109,24 @@ namespace RiskItForTheBiscuit.Risk
             int x = Int32.Parse(coords[0]);
             int y = Int32.Parse(coords[1]);
             return new Point(x, y);
+        }
+
+        private List<Point> toPointList(string s)
+        {
+            List<Point> points = new List<Point>();
+            string[] splits = s.Split(new char[2] { ')','('});
+            foreach(string split in splits)
+            {
+                if(split != "")
+                {
+                    string[] coords = split.Replace(" ", "").Split(',');
+                    int x = Int32.Parse(coords[0]);
+                    int y = Int32.Parse(coords[1]);
+                    points.Add(new Point(x, y));
+                }
+            }
+
+            return points;
         }
 
         //not used
@@ -216,14 +241,11 @@ namespace RiskItForTheBiscuit.Risk
 
         private Territory getTerritoryFromClick(Point click)
         {
-            foreach (Continent continent in this.Continents)
+            foreach (Territory territory in GetAllTerritories())
             {
-                foreach (Territory territory in continent)
+                if (territory.IsClicked(click))
                 {
-                    if (territory.ClickRegion.Contains(click))
-                    {
-                        return territory;
-                    }
+                    return territory;
                 }
             }
             return null;
