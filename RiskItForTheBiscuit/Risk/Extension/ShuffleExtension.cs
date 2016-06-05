@@ -5,9 +5,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RiskItForTheBiscuit.Risk
+namespace RiskItForTheBiscuit.Risk.Extension
 {
-    public static class Extensions
+    public static class ShuffleExtension
     {
         public static IList<T> Shuffle<T>(this IList<T> input)
         {

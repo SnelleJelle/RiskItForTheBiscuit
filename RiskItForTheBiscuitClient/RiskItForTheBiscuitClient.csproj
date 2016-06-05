@@ -4,29 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{66DD698B-F847-488C-AB3E-E1A5EB9F9753}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{A95A9362-6AAB-4C10-8D02-EB219AE91CDD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RiskItForTheBiscuitGame</RootNamespace>
-    <AssemblyName>RiskItForTheBiscuitGame</AssemblyName>
+    <RootNamespace>RiskItForTheBiscuitClient</RootNamespace>
+    <AssemblyName>RiskItForTheBiscuitClient</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,7 +22,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>6</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,13 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,18 +46,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Drawing\ContinentGraphics.cs" />
+    <Compile Include="Drawing\GraphicsExtension.cs" />
+    <Compile Include="Drawing\TerritoryGraphics.cs" />
+    <Compile Include="frmRisk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRisk.Designer.cs">
+      <DependentUpon>frmRisk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameOverview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GameOverview.Designer.cs">
+      <DependentUpon>GameOverview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmRisk.resx">
+      <DependentUpon>frmRisk.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameOverview.resx">
+      <DependentUpon>GameOverview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Risk\Continent.cs" />
-    <Compile Include="Risk\Extension\ShuffleExtension.cs" />
-    <Compile Include="Risk\GameLoader.cs" />
-    <Compile Include="Risk\Player.cs" />
-    <Compile Include="Risk\Territory.cs" />
-    <Compile Include="Risk\Game.cs" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -92,17 +94,20 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    <Content Include="Resources\Attack.wav" />
+    <Content Include="Resources\Select.wav" />
+    <EmbeddedResource Include="Resources\world_map_risk.xml">
+      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <None Include="Resources\Swords50x50.png" />
+    <None Include="Resources\Shield35x35.png" />
+    <None Include="Resources\risk_world_map1264x839.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
+    <ProjectReference Include="..\RiskItForTheBiscuit\RiskItForTheBiscuit.csproj">
+      <Project>{66dd698b-f847-488c-ab3e-e1a5eb9f9753}</Project>
+      <Name>RiskItForTheBiscuit</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

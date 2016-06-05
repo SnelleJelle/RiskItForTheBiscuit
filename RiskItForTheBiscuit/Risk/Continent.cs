@@ -27,18 +27,12 @@ namespace RiskItForTheBiscuit.Risk
             {
                 this.Add(territory);
                 territory.ParentContinent = this;
-                territory.CalclateLabelSize();
             }
         }
 
         public Territory GetTerritory(string name)
         {
             return this.First(s => s.Name == name);
-        }
-
-        public void Draw(Graphics g)
-        {
-            this.ForEach(t => t.DrawLabel(g));
         }
 
         public override string ToString()

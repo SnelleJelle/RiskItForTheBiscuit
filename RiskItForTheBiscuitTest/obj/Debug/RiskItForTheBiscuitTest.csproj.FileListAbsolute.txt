@@ -1,9 +1,0 @@
-C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuitTest\bin\Debug\RiskItForTheBiscuitTest.dll
-C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuitTest\bin\Debug\RiskItForTheBiscuitTest.pdb
-C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
-C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuitTest\obj\Debug\RiskItForTheBiscuitTest.csprojResolveAssemblyReference.cache
-C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuitTest\obj\Debug\RiskItForTheBiscuitTest.dll
-C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuitTest\obj\Debug\RiskItForTheBiscuitTest.pdb
-C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuitTest\bin\Debug\RiskItForTheBiscuit.exe
-C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuitTest\bin\Debug\RiskItForTheBiscuit.pdb
-C:\Users\Jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
