@@ -45,7 +45,7 @@ namespace RiskItForTheBiscuitGame.Risk
 
                     continent.AddTerritories(territory);
                 }
-                game.Continents.Add(continent.Name, continent);
+                game.Continents.Add(continent);
             }
 
             XElement allNeighbours = map.Element("allneighbours");

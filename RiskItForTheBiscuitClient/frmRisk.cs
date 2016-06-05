@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using RiskItForTheBiscuit.Risk;
-using System.Diagnostics;
-using System.Xml.Linq;
-using RiskItForTheBiscuit.Risk.Extension;
 using System.Media;
 using System.Drawing.Drawing2D;
 using RiskItForTheBiscuitClient.Drawing;
@@ -65,52 +57,35 @@ namespace RiskItForTheBiscuitClient
             g.DrawFullImg(backGround);
 
             //continents
-            foreach (Continent continent in Continents.Where(c => !c.Contains(SelectedTerritory)))
+            foreach (Continent continent in Game.Continents.Where(c => !c.Contains(selectedTerritory)))
             {
-                continent.Draw(g);
+                //continent.Draw(g);
             }
 
-            if (SelectedTerritory != null)
+            if (selectedTerritory != null)
             {
-                foreach (Territory territory in Continents.First(c => c.Contains(SelectedTerritory)))
+                foreach (Territory territory in Game.Continents.First(c => c.Contains(selectedTerritory)))
                 {
-                    territory.DrawLabel(g);
+                    //territory.DrawLabel(g);
                 }
-                SelectedTerritory.GetAttackableNeighbours().ForEach(n => n.DrawAttackable(g));
+                //selectedTerritory.GetAttackableNeighbours().ForEach(n => n.DrawAttackable(g));
             }
         }
 
         private void select(Territory newlySelectedTerritory)
         {
-            if (newlySelectedTerritory != null)
+            if (selectedTerritory != newlySelectedTerritory && newlySelectedTerritory != null)
             {
                 selectSound.Play();
-                if (selectedTerritory != null)
-                {
-                    selectedTerritory.IsSelected = false;
-                    newlySelectedTerritory.IsSelected = true;
-                    selectedTerritory = newlySelectedTerritory;
-                }
-                else // selectedTerritory == null
-                {
-                    newlySelectedTerritory.IsSelected = true;
-                    selectedTerritory = newlySelectedTerritory;
-                }
             }
-            else // newlySelectedTerritory == null
-            {
-                if (selectedTerritory != null)
-                {
-                    selectedTerritory.IsSelected = false;
-                }
-                selectedTerritory = null;
-            }
+            selectedTerritory = newlySelectedTerritory;
             pbMap.Refresh();
+
         }
 
-        private void attack(Territory newlySelectedTerritory)
+        private void attack(Territory attackedTerritory)
         {
-            if (newlySelectedTerritory != null && selectedTerritory.GetAttackableNeighbours().Contains(newlySelectedTerritory))
+            if (attackedTerritory != null && selectedTerritory.CanAttack(attackedTerritory))
             {
                 attackSound.Play();
             }
@@ -121,12 +96,12 @@ namespace RiskItForTheBiscuitClient
         {
             if (e.Button == MouseButtons.Left)
             {
-                Territory clicked = getTerritoryFromClick(e.Location);
+                Territory clicked = Game.TerritoryOnCoordinates(e.Location);
                 select(clicked);
             }
             else // e.Button == MouseButtons.Left
             {
-                Territory clicked = getTerritoryFromClick(e.Location);
+                Territory clicked = Game.TerritoryOnCoordinates(e.Location);
                 attack(clicked);
             }
         }

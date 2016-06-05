@@ -31,7 +31,7 @@ namespace RiskItForTheBiscuit.Risk.Placement
 
         private Point getPoint()
         {
-            return game.GetTerritoryFromContinent(currentTerritoryName, game.Continents.Values.ToList()).LabelCoordinates;
+            return game.GetTerritoryFromContinent(currentTerritoryName, game.Continents).LabelCoordinates;
         }
 
         private void persistLabelLocationPoint()
@@ -101,7 +101,7 @@ namespace RiskItForTheBiscuit.Risk.Placement
                     break;                
             }
 
-            game.GetTerritoryFromContinent(currentTerritoryName, game.Continents.Values.ToList()).LabelCoordinates = point;
+            game.GetTerritoryFromContinent(currentTerritoryName, game.Continents).LabelCoordinates = point;
             //game.pbDrawingField.Refresh();
         }
 
@@ -110,7 +110,7 @@ namespace RiskItForTheBiscuit.Risk.Placement
             string directory = @"../../resources";
             string imagesDirectory = directory + @"/images";
             string xmlString = "\n<continents>\n";
-            foreach (Continent continent in game.Continents.Values.ToList())
+            foreach (Continent continent in game.Continents)
             {
                 string imgDirectory = imagesDirectory + @"/" + continent.Name;
                 xmlString += "\t<continent name=\"" + continent.Name + "\">\n";
@@ -128,7 +128,7 @@ namespace RiskItForTheBiscuit.Risk.Placement
             List<Tuple<Territory, Territory>> alreadyNeighboured = new List<Tuple<Territory, Territory>>();
 
             xmlString += "<allneighbours>\n";
-            foreach (Continent continent in game.Continents.Values.ToList())
+            foreach (Continent continent in game.Continents)
             {
                 foreach (Territory territory in continent)
                 {

@@ -86,5 +86,20 @@ namespace RiskItForTheBiscuit.Risk
             }
             return null;
         }  
+
+        public Territory TerritoryOnCoordinates(Point coordinates)
+        {
+            foreach (Continent continent in this.Continents)
+            {
+                foreach(Territory territory in continent)
+                {
+                    if (territory.ContainsCoordinates(coordinates))
+                    {
+                        return territory;
+                    }
+                }
+            }
+            return null;
+        }
     }
 }

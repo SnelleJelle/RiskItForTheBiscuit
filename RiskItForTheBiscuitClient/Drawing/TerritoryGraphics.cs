@@ -30,7 +30,7 @@ namespace RiskItForTheBiscuitClient.Drawing
                 territory.Name,
                 territory.NrOfSoldiers,
                 territory.Owner.PlayerColor,
-                territory.IsSelected);
+                true);
         }
 
         public void DrawAttackable(Graphics g)
@@ -45,59 +45,6 @@ namespace RiskItForTheBiscuitClient.Drawing
                 LabelCoordinates.Y - 20,
                 labelSize.Width + 50,
                 labelSize.Height + 40);
-        }        
-
-        public bool IsClicked(Point click)
-        {
-            if (LabelRegion.Contains(click)){
-                return true;
-            }
-            else if(IsInPolygon(Border.ToArray(), click))
-            {
-                return true;
-            }
-            return false;
-        }
-
-
-
-        private bool IsInPolygon(Point[] poly, Point click)
-        {
-            bool isInside = false;
-            for (int i = 0; i < poly.Length; i++)
-            {
-                if (LineIntersectsWidthEdge(poly[i], poly[(i + 1) % poly.Length], click))
-                {
-                    isInside = !isInside;
-                }
-            }
-            return isInside;
-        }
-
-        private bool LineIntersectsWidthEdge(Point edge1, Point edge2, Point click)
-        {
-            Point point2 = new Point(click.X + 1920, click.Y + 1080);
-            float dx12 = (float)(edge2.X - edge1.X);
-            float dy12 = (float)(edge2.Y - edge1.Y);
-            float dx34 = (float)(point2.X - click.X);
-            float dy34 = (float)(point2.Y - click.Y);
-
-            float denominator = (dy12 * dx34 - dx12 * dy34);
-
-            float t1 =
-                (float)((edge1.X - click.X) * dy34 + (click.Y - edge1.Y) * dx34)
-                    / denominator;
-            if (float.IsInfinity(t1))
-            {
-                return false;
-            }
-
-            float t2 =
-            (float)((click.X - edge1.X) * dy12 + (edge1.Y - click.Y) * dx12)
-                / -denominator;
-
-            return ((t1 >= 0) && (t1 <= 1) &&
-            (t2 >= 0) && (t2 <= 1));
         }
     }
 }
