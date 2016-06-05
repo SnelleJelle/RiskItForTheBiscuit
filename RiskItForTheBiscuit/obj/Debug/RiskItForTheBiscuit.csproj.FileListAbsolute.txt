@@ -23,3 +23,9 @@ C:\Users\jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItFo
 C:\Users\Jelle\Copy\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuit\obj\Debug\RiskItForTheBiscuit.Risk.GameOverview.resources
 C:\Users\Jelle\hubic\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuit\obj\Debug\RiskItForTheBiscuit.csprojResolveAssemblyReference.cache
 C:\Users\Jelle\hubic\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuit\obj\Debug\RiskItForTheBiscuit.csproj.GenerateResource.Cache
+C:\Users\Jelle\hubic\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuit\bin\Debug\RiskItForTheBiscuitGame.dll.config
+C:\Users\Jelle\hubic\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuit\bin\Debug\RiskItForTheBiscuitGame.dll
+C:\Users\Jelle\hubic\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuit\bin\Debug\RiskItForTheBiscuitGame.pdb
+C:\Users\Jelle\hubic\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuit\obj\Debug\RiskItForTheBiscuitGame.Properties.Resources.resources
+C:\Users\Jelle\hubic\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuit\obj\Debug\RiskItForTheBiscuitGame.dll
+C:\Users\Jelle\hubic\Code\Csharp\RiskItForTheBiscuit\RiskItForTheBiscuit\RiskItForTheBiscuit\obj\Debug\RiskItForTheBiscuitGame.pdb

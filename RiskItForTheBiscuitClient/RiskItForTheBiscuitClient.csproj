@@ -96,6 +96,7 @@
   <ItemGroup>
     <Content Include="Resources\Attack.wav" />
     <Content Include="Resources\Select.wav" />
+    <Content Include="risk_world_map1264x839.jpg" />
     <EmbeddedResource Include="Resources\world_map_risk.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>

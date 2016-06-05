@@ -99,7 +99,7 @@ namespace RiskItForTheBiscuitClient
                 Territory clicked = Game.TerritoryOnCoordinates(e.Location);
                 select(clicked);
             }
-            else // e.Button == MouseButtons.Left
+            else  if (e.Button == MouseButtons.Right)
             {
                 Territory clicked = Game.TerritoryOnCoordinates(e.Location);
                 attack(clicked);
