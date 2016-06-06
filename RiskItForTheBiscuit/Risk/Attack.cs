@@ -22,5 +22,10 @@ namespace RiskItForTheBiscuitGame.Risk
             this.attackingTerritory = attackingTerritory;
             return this;
         }
+
+        public void ResolveOneBattle()
+        {
+
+        }
     }
 }

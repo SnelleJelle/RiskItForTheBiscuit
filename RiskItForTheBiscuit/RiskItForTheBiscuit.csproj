@@ -72,6 +72,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Risk\Attack.cs" />
     <Compile Include="Risk\Continent.cs" />
     <Compile Include="Risk\Extension\ShuffleExtension.cs" />
     <Compile Include="Risk\GameLoader.cs" />

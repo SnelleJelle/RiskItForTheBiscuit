@@ -9,6 +9,7 @@ using System.Drawing.Drawing2D;
 using RiskItForTheBiscuitClient.Drawing;
 using RiskItForTheBiscuitGame.Risk;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace RiskItForTheBiscuitClient
 {
@@ -29,10 +30,14 @@ namespace RiskItForTheBiscuitClient
             this.Game = game;
 
             overviewPanel = new GameOverview(game);
-            overviewPanel.Location = new Point(this.Game.GameSize);
+            int heightDifference = 24;
+            overviewPanel.Location = new Point(this.Game.GameSize.Width, heightDifference);
+            overviewPanel.Size = new Size(this.ClientSize.Width - backGround.Width, this.ClientSize.Height - heightDifference);
+            overviewPanel.BringToFront();
             this.Controls.Add(overviewPanel);
-
+            
             this.pbRiskMap.Image = backGround;
+            this.pbRiskMap.Size = backGround.Size;
         }
 
         private void frmRisk_Load(object sender, EventArgs e)
@@ -83,7 +88,6 @@ namespace RiskItForTheBiscuitClient
                 selectSound.Play();
             }
             selectedTerritory = newlySelectedTerritory;
-
         }
 
         private void attack(Territory attackedTerritory)
@@ -92,7 +96,7 @@ namespace RiskItForTheBiscuitClient
             {
                 attackSound.Play();
                 Attack attack = attackedTerritory.Attack().From(selectedTerritory);
-                overviewPanel
+                overviewPanel.Attack = attack;
             }
         }
 

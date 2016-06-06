@@ -62,12 +62,12 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             resources.ApplyResources(this.aboutToolStripMenuItem, "aboutToolStripMenuItem");
             // 
-            // pbMap
+            // pbRiskMap
             // 
             this.pbRiskMap.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.pbRiskMap, "pbMap");
+            resources.ApplyResources(this.pbRiskMap, "pbRiskMap");
             this.pbRiskMap.Image = global::RiskItForTheBiscuitClient.Properties.Resources.risk_world_map1264x839;
-            this.pbRiskMap.Name = "pbMap";
+            this.pbRiskMap.Name = "pbRiskMap";
             this.pbRiskMap.TabStop = false;
             this.pbRiskMap.Paint += new System.Windows.Forms.PaintEventHandler(this.pbRiskMap_Paint);
             this.pbRiskMap.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbRiskMap_MouseClick);
@@ -76,7 +76,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(200)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(148)))), ((int)(((byte)(173)))));
             this.Controls.Add(this.pbRiskMap);
             this.Controls.Add(this.mainMenuStrip);
             this.KeyPreview = true;
