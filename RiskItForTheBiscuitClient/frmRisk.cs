@@ -20,6 +20,7 @@ namespace RiskItForTheBiscuitClient
         private SoundPlayer attackSound = new SoundPlayer(@"../../Resources/Attack.wav");
         private SoundPlayer selectSound = new SoundPlayer(@"../../Resources/Select.wav");
         private Image backGround = Image.FromFile(@"../../Resources/risk_world_map1264x839.jpg");
+        private GameOverview overviewPanel;
 
         public frmRisk(Game game)
         {
@@ -27,9 +28,9 @@ namespace RiskItForTheBiscuitClient
 
             this.Game = game;
 
-            GameOverview overview = new GameOverview(game);
-            overview.Location = new Point(this.Game.GameSize);
-            this.Controls.Add(overview);
+            overviewPanel = new GameOverview(game);
+            overviewPanel.Location = new Point(this.Game.GameSize);
+            this.Controls.Add(overviewPanel);
 
             this.pbRiskMap.Image = backGround;
         }
@@ -41,7 +42,7 @@ namespace RiskItForTheBiscuitClient
 
         private void pbRiskMap_Paint(object sender, PaintEventArgs e)
         {
-            drawGame(e.Graphics);
+            drawItemsOnMap(e.Graphics);
         }       
 
         private void pbRiskMap_MouseClick(object sender, MouseEventArgs e)
@@ -49,7 +50,7 @@ namespace RiskItForTheBiscuitClient
             clickOnGame(e);
         }
 
-        private void drawGame(Graphics g)
+        private void drawItemsOnMap(Graphics g)
         {
             // settings 
             g.SmoothingMode = SmoothingMode.HighQuality;
@@ -90,6 +91,8 @@ namespace RiskItForTheBiscuitClient
             if (attackedTerritory != Game.Sea && selectedTerritory.CanAttack(attackedTerritory))
             {
                 attackSound.Play();
+                Attack attack = attackedTerritory.Attack().From(selectedTerritory);
+                overviewPanel
             }
         }
 

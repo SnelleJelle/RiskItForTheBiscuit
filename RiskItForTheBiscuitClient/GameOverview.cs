@@ -14,6 +14,7 @@ namespace RiskItForTheBiscuit.Risk
     public partial class GameOverview : UserControl
     {
         private Game game;
+        public Attack Attack { get; set; }
 
         public GameOverview(Game game)
         {

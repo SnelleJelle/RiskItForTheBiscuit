@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using RiskItForTheBiscuit.Risk.Extension;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using RiskItForTheBiscuitGame.Risk;
 
 namespace RiskItForTheBiscuit.Risk
 {
@@ -103,6 +104,11 @@ namespace RiskItForTheBiscuit.Risk
 
             return ((t1 >= 0) && (t1 <= 1) &&
             (t2 >= 0) && (t2 <= 1));
+        }
+
+        public Attack Attack()
+        {
+            return new Attack(this);
         }
 
         public override string ToString()
