@@ -15,7 +15,7 @@ namespace RiskItForTheBiscuitClient
     public partial class frmRisk : Form
     {
         public Game Game { get; set; }
-        private Territory selectedTerritory;
+        private Territory selectedTerritory = Game.Sea;
 
         private SoundPlayer attackSound = new SoundPlayer(@"../../Resources/Attack.wav");
         private SoundPlayer selectSound = new SoundPlayer(@"../../Resources/Select.wav");
@@ -51,20 +51,27 @@ namespace RiskItForTheBiscuitClient
 
         private void drawGame(Graphics g)
         {
-            //settings 
+            // settings 
             g.SmoothingMode = SmoothingMode.HighQuality;
 
-            //bg
+            // bg
             g.DrawFullImg(backGround);
 
             // territories
+            List<Territory> alreadyDrawn = new List<Territory>();
             if (selectedTerritory != Game.Sea)
             {
-                g.DrawLabel(selectedTerritory.LabelCoordinates, selectedTerritory.Name, selectedTerritory.NrOfSoldiers, selectedTerritory.Owner.PlayerColor, true);
+                g.DrawLabel(selectedTerritory, true);
+                alreadyDrawn.Add(selectedTerritory);
+                foreach(Territory territory in selectedTerritory.GetAttackableNeighbours())
+                {
+                    g.DrawAttackableLabel(territory);
+                    alreadyDrawn.Add(territory);
+                }
             }
-            foreach (Territory t in Game.GetAllTerritories().Except(new List<Territory>{selectedTerritory}))
+            foreach (Territory territory in Game.GetAllTerritories().Except(new List<Territory>(alreadyDrawn)))
             {
-                g.DrawLabel(t.LabelCoordinates, t.Name, t.NrOfSoldiers, t.Owner.PlayerColor);
+                g.DrawLabel(territory);                
             }
         }
 

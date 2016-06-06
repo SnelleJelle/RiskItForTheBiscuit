@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Drawing\GraphicsExtension.cs" />
-    <Compile Include="Drawing\TerritoryGraphics.cs" />
     <Compile Include="frmRisk.cs">
       <SubType>Form</SubType>
     </Compile>
