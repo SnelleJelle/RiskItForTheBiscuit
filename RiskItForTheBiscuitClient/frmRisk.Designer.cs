@@ -33,9 +33,9 @@
             this.playersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pbMap = new System.Windows.Forms.PictureBox();
+            this.pbRiskMap = new System.Windows.Forms.PictureBox();
             this.mainMenuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRiskMap)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenuStrip
@@ -64,20 +64,20 @@
             // 
             // pbMap
             // 
-            this.pbMap.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.pbMap, "pbMap");
-            this.pbMap.Image = global::RiskItForTheBiscuitClient.Properties.Resources.risk_world_map1264x839;
-            this.pbMap.Name = "pbMap";
-            this.pbMap.TabStop = false;
-            this.pbMap.Paint += new System.Windows.Forms.PaintEventHandler(this.pbMap_Paint);
-            this.pbMap.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbMap_MouseClick);
+            this.pbRiskMap.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.pbRiskMap, "pbMap");
+            this.pbRiskMap.Image = global::RiskItForTheBiscuitClient.Properties.Resources.risk_world_map1264x839;
+            this.pbRiskMap.Name = "pbMap";
+            this.pbRiskMap.TabStop = false;
+            this.pbRiskMap.Paint += new System.Windows.Forms.PaintEventHandler(this.pbRiskMap_Paint);
+            this.pbRiskMap.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbRiskMap_MouseClick);
             // 
             // frmRisk
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(200)))));
-            this.Controls.Add(this.pbMap);
+            this.Controls.Add(this.pbRiskMap);
             this.Controls.Add(this.mainMenuStrip);
             this.KeyPreview = true;
             this.MainMenuStrip = this.mainMenuStrip;
@@ -86,7 +86,7 @@
             this.Load += new System.EventHandler(this.frmRisk_Load);
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRiskMap)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -94,7 +94,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pbMap;
+        private System.Windows.Forms.PictureBox pbRiskMap;
         private System.Windows.Forms.MenuStrip mainMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem playersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chatToolStripMenuItem;

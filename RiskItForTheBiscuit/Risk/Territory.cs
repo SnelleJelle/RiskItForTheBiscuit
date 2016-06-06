@@ -14,13 +14,13 @@ namespace RiskItForTheBiscuit.Risk
     {        
         public string Name { get; set; }
         public Player Owner { get; set; }
-        public Continent ParentContinent { get; set; }
-        public List<Territory> Neighbours { get; set; } = new List<Territory>();
         public uint NrOfSoldiers { get; set; } = 1;
-        public bool IsSelectedNeighbour { get; set; } = false;
+        public Continent ParentContinent { get; set; }
+        public List<Territory> Neighbours { get; set; } = new List<Territory>();        
         public List<Point> Border { get; set; }
         public Point LabelCoordinates { get; set; }
         public Rectangle LabelRegion { get; set; }
+        public static Territory Sea { get; } = new Territory("Sea");
 
         public Territory(string name)
         {
@@ -108,6 +108,11 @@ namespace RiskItForTheBiscuit.Risk
         public override string ToString()
         {
             return Name;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return this.Name == ((Territory)obj).Name;
         }
     }
 }

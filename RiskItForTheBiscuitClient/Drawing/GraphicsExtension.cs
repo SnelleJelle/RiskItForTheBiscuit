@@ -14,7 +14,7 @@ namespace RiskItForTheBiscuitClient.Drawing
     //TODO: calculate certain Classes at compile-Time for performance gain;
     public static class GraphicsExtension
     {
-        public static Image shield = Properties.Resources.Shield35x35;
+        public static Image shield = Image.FromFile(@"../../Resources/Shield35x35.png");
         private static Font shieldFont = new Font("Arial", 11);
         public static Font labelFont = new Font("Tahoma", 8);
 

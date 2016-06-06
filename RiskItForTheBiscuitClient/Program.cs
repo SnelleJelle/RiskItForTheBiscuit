@@ -34,7 +34,7 @@ namespace RiskItForTheBiscuitClient
             Game game = loader.LoadFromXmlFile(mapPath);
             game.Players = players;
             //for testing
-            game.randomizeOwnership();
+            game.RandomizeOwnership();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

@@ -11,40 +11,39 @@ using System.Windows.Forms;
 namespace RiskItForTheBiscuitClient.Drawing
 {
     class TerritoryGraphics
-    {        
-        public List<Point> Border { get; set; }
-        public Point LabelCoordinates { get; set; }
-        public Rectangle LabelRegion { get; set; }
-
-        public Territory territory { get; set; }
-
-        public TerritoryGraphics(Territory territory)
+    {
+        public TerritoryGraphics()
         {
-            this.territory = territory;
+           
         }
 
-        public void DrawLabel(Graphics g)
+        public void DrawTerritory(Graphics g, Territory territory)
+        {
+            DrawLabel(g, territory);
+        }
+
+        public void DrawLabel(Graphics g, Territory territory)
         {
             g.DrawLabel(
-                LabelCoordinates,
+                territory.LabelCoordinates,
                 territory.Name,
                 territory.NrOfSoldiers,
                 territory.Owner.PlayerColor,
                 true);
         }
 
-        public void DrawAttackable(Graphics g)
+        public void DrawAttackable(Graphics g, Territory territory)
         {
-            g.DrawAttackable(territory.Name, LabelCoordinates);
+            g.DrawAttackable(territory.Name, territory.LabelCoordinates);
         }
 
-        public void CalclateLabelSize()
-        {
-            Size labelSize = TextRenderer.MeasureText(territory.Name, GraphicsExtension.labelFont);
-            LabelRegion = new Rectangle(LabelCoordinates.X - 10,
-                LabelCoordinates.Y - 20,
-                labelSize.Width + 50,
-                labelSize.Height + 40);
-        }
+        //public void CalclateLabelSize()
+        //{
+        //    Size labelSize = TextRenderer.MeasureText(territory.Name, GraphicsExtension.labelFont);
+        //    LabelRegion = new Rectangle(LabelCoordinates.X - 10,
+        //        LabelCoordinates.Y - 20,
+        //        labelSize.Width + 50,
+        //        labelSize.Height + 40);
+        //}
     }
 }

@@ -31,7 +31,7 @@ namespace RiskItForTheBiscuit.Risk.Placement
 
         private Point getPoint()
         {
-            return game.GetTerritoryFromContinent(currentTerritoryName, game.Continents).LabelCoordinates;
+            return null; // game.GetTerritoryFromContinent(currentTerritoryName, game.Continents).LabelCoordinates;
         }
 
         private void persistLabelLocationPoint()
@@ -101,7 +101,7 @@ namespace RiskItForTheBiscuit.Risk.Placement
                     break;                
             }
 
-            game.GetTerritoryFromContinent(currentTerritoryName, game.Continents).LabelCoordinates = point;
+            //game.GetTerritoryFromContinent(currentTerritoryName, game.Continents).LabelCoordinates = point;
             //game.pbDrawingField.Refresh();
         }
 

@@ -7,18 +7,19 @@ using RiskItForTheBiscuit.Risk;
 using System.Media;
 using System.Drawing.Drawing2D;
 using RiskItForTheBiscuitClient.Drawing;
+using RiskItForTheBiscuitGame.Risk;
+using System.Collections.Generic;
 
 namespace RiskItForTheBiscuitClient
 {
     public partial class frmRisk : Form
     {
         public Game Game { get; set; }
-        
+        private Territory selectedTerritory;
+
         private SoundPlayer attackSound = new SoundPlayer(@"../../Resources/Attack.wav");
         private SoundPlayer selectSound = new SoundPlayer(@"../../Resources/Select.wav");
-        private Image backGround = Properties.Resources.risk_world_map1264x839;
-
-        private Territory selectedTerritory;
+        private Image backGround = Image.FromFile(@"../../Resources/risk_world_map1264x839.jpg");
 
         public frmRisk(Game game)
         {
@@ -27,10 +28,10 @@ namespace RiskItForTheBiscuitClient
             this.Game = game;
 
             GameOverview overview = new GameOverview(game);
-            overview.Location = new Point(Game.GameSize);
+            overview.Location = new Point(this.Game.GameSize);
             this.Controls.Add(overview);
 
-            this.pbMap.Image = backGround;
+            this.pbRiskMap.Image = backGround;
         }
 
         private void frmRisk_Load(object sender, EventArgs e)
@@ -38,12 +39,12 @@ namespace RiskItForTheBiscuitClient
 
         }
 
-        private void pbMap_Paint(object sender, PaintEventArgs e)
+        private void pbRiskMap_Paint(object sender, PaintEventArgs e)
         {
             drawGame(e.Graphics);
         }       
 
-        private void pbMap_MouseClick(object sender, MouseEventArgs e)
+        private void pbRiskMap_MouseClick(object sender, MouseEventArgs e)
         {
             clickOnGame(e);
         }
@@ -56,40 +57,33 @@ namespace RiskItForTheBiscuitClient
             //bg
             g.DrawFullImg(backGround);
 
-            //continents
-            foreach (Continent continent in Game.Continents.Where(c => !c.Contains(selectedTerritory)))
+            // territories
+            if (selectedTerritory != Game.Sea)
             {
-                //continent.Draw(g);
+                g.DrawLabel(selectedTerritory.LabelCoordinates, selectedTerritory.Name, selectedTerritory.NrOfSoldiers, selectedTerritory.Owner.PlayerColor, true);
             }
-
-            if (selectedTerritory != null)
+            foreach (Territory t in Game.GetAllTerritories().Except(new List<Territory>{selectedTerritory}))
             {
-                foreach (Territory territory in Game.Continents.First(c => c.Contains(selectedTerritory)))
-                {
-                    //territory.DrawLabel(g);
-                }
-                //selectedTerritory.GetAttackableNeighbours().ForEach(n => n.DrawAttackable(g));
+                g.DrawLabel(t.LabelCoordinates, t.Name, t.NrOfSoldiers, t.Owner.PlayerColor);
             }
         }
 
         private void select(Territory newlySelectedTerritory)
         {
-            if (selectedTerritory != newlySelectedTerritory && newlySelectedTerritory != null)
+            if (selectedTerritory != newlySelectedTerritory && newlySelectedTerritory != Game.Sea)
             {
                 selectSound.Play();
             }
             selectedTerritory = newlySelectedTerritory;
-            pbMap.Refresh();
 
         }
 
         private void attack(Territory attackedTerritory)
         {
-            if (attackedTerritory != null && selectedTerritory.CanAttack(attackedTerritory))
+            if (attackedTerritory != Game.Sea && selectedTerritory.CanAttack(attackedTerritory))
             {
                 attackSound.Play();
             }
-            pbMap.Refresh();
         }
 
         public void clickOnGame(MouseEventArgs e)
@@ -104,6 +98,7 @@ namespace RiskItForTheBiscuitClient
                 Territory clicked = Game.TerritoryOnCoordinates(e.Location);
                 attack(clicked);
             }
+            pbRiskMap.Refresh();
         }
     }
 }
