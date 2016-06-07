@@ -19,7 +19,9 @@ namespace RiskItForTheBiscuit.Risk
         private Game game;
         private Attack attack { get; set; }
         private Territory selectedTerritory { get; set; } = Game.Sea;
-        private SoundPlayer diceSound = new SoundPlayer(@"../../Resources/Dice.mp3");
+        private SoundPlayer diceSound = new SoundPlayer(@"../../Resources/Dice.wav");
+        private Point defenderDiceLocation = new Point(15, 216);
+        private Point attackerDiceLocation = new Point(15, 270);
 
         public GameOverview(Game game)
         {
@@ -102,8 +104,30 @@ namespace RiskItForTheBiscuit.Risk
         private void btnResolveOne_Click(object sender, EventArgs e)
         {
             diceSound.Play();
-            attack.ResolveOneTurn();
             RefreshUi();
+            TurnResult result = attack.ResolveOneTurn();
+            DisplayDiceAsImage(result);
+        }
+
+        private void DisplayDiceAsImage(TurnResult result)
+        {
+            Point location = defenderDiceLocation;
+            foreach(uint eyes in result.DefenderThrows)
+            {
+                PictureBox dice = new PictureBox();
+                dice.Image = getDiceImage(eyes);
+                dice.Location = location;
+                dice.Size = new Size(25, 25);
+                dice.SizeMode = PictureBoxSizeMode.StretchImage;
+                grpBattle.Controls.Add(dice);
+
+                location = new Point(location.X + 30, location.Y);
+            }
+        }
+
+        private Image getDiceImage(uint nrOfEyes)
+        {
+            return Image.FromFile(string.Format(@"../../Resources/Dice{0}.png", nrOfEyes));
         }
     }
 }

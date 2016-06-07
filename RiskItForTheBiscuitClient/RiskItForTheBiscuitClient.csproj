@@ -99,7 +99,8 @@
     <None Include="Resources\Dice5.png" />
     <None Include="Resources\Dice6.png" />
     <None Include="Resources\DiceThrow.png" />
-    <None Include="Resources\Dice.mp3" />
+    <Content Include="Resources\Dice.wav" />
+    <Content Include="Resources\Dice4.png" />
     <Content Include="Resources\Select.wav" />
     <EmbeddedResource Include="Resources\world_map_risk.xml">
       <SubType>Designer</SubType>

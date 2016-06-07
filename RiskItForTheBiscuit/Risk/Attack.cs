@@ -8,6 +8,7 @@ using RiskItForTheBiscuit.Risk.Extension;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using RiskItForTheBiscuitGame.Risk;
+using System.Security.Cryptography;
 
 namespace RiskItForTheBiscuit.Risk
 {
@@ -27,10 +28,25 @@ namespace RiskItForTheBiscuit.Risk
             return this;
         }
 
-        public void ResolveOneTurn()
+        public TurnResult ResolveOneTurn()
         {
-            
+            TurnResult result = new TurnResult();
+            uint defenderDice = Math.Min(DefendingTerritory.NrOfSoldiers, 3);
+            uint attackerDice = Math.Min(AttackingTerritory.NrOfSoldiers, 2);
 
+            for (int i = 0; i < defenderDice; i++)
+            {
+                result.DefenderThrows.Add(getDiceThrow());
+            }
+            result.DefenderThrows.Sort();
+
+            for (int i = 0; i < attackerDice; i++)
+            {
+                result.AttackerThrows.Add(getDiceThrow());
+            }
+            result.AttackerThrows.Sort();
+
+            return result;
         }
 
         public void ResolveUntilFinished()
@@ -38,9 +54,17 @@ namespace RiskItForTheBiscuit.Risk
 
         }
 
-        private uint getDiceThrow()
+        private uint getDiceThrow(uint min = 1, uint max = 6)
         {
-            return (uint)(new Random().Next(1, 6));
+            RandomNumberGenerator rng = new RNGCryptoServiceProvider();
+            byte[] data = new byte[8];
+            ulong value;
+            do
+            {
+                rng.GetBytes(data);
+                value = BitConverter.ToUInt64(data, 0);
+            } while (value == 0);
+            return (uint)(value % max + min);
         }
     }
 }
