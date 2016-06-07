@@ -18,7 +18,9 @@ namespace RiskItForTheBiscuit.Risk
     {
         public List<Continent> Continents { get; set; } = new List<Continent>();
         public List<Player> Players { get; set; } = new List<Player>();
-        public Size GameSize;
+        public Player CurrentPlayer { get; set; }
+        private int currentPlayerIndex = 0;
+        public Size GameSize { get; set; }
         public string GameName { get; set; }
         public static Territory Sea { get; } = Territory.Sea;
 
@@ -32,9 +34,11 @@ namespace RiskItForTheBiscuit.Risk
         {
             var players = Players.Shuffle();
             int index = 0;
+            Random random = new Random();
             foreach (Territory territory in GetAllTerritories().Shuffle())
             {
                 territory.Owner = players[index];
+                territory.NrOfSoldiers = Convert.ToUInt32(random.Next(1, 6));
                 index = (index + 1) % players.Count;
             }
         }
@@ -74,6 +78,17 @@ namespace RiskItForTheBiscuit.Risk
                 }
             }
             return Game.Sea;
+        }
+
+        public void Start()
+        {
+            CurrentPlayer = Players[currentPlayerIndex];
+        }
+
+        public void NextTurn()
+        {
+            currentPlayerIndex = (currentPlayerIndex + 1) % Players.Count;
+            CurrentPlayer = Players[currentPlayerIndex];
         }
     }
 }

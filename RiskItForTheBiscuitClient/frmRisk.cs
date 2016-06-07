@@ -28,6 +28,7 @@ namespace RiskItForTheBiscuitClient
             InitializeComponent();
 
             this.Game = game;
+            game.Start();
 
             overviewPanel = new GameOverview(game);
             int heightDifference = 24;
@@ -69,7 +70,7 @@ namespace RiskItForTheBiscuitClient
             {
                 g.DrawLabel(selectedTerritory, true);
                 alreadyDrawn.Add(selectedTerritory);
-                foreach(Territory territory in selectedTerritory.GetAttackableNeighbours())
+                foreach(Territory territory in selectedTerritory.GetAttackableNeighbours(true))
                 {
                     g.DrawAttackableLabel(territory);
                     alreadyDrawn.Add(territory);
@@ -88,6 +89,7 @@ namespace RiskItForTheBiscuitClient
                 selectSound.Play();
             }
             selectedTerritory = newlySelectedTerritory;
+            overviewPanel.Select(newlySelectedTerritory);
         }
 
         private void attack(Territory attackedTerritory)
@@ -96,7 +98,7 @@ namespace RiskItForTheBiscuitClient
             {
                 attackSound.Play();
                 Attack attack = attackedTerritory.Attack().From(selectedTerritory);
-                overviewPanel.Attack = attack;
+                overviewPanel.Attack(attack);
             }
         }
 

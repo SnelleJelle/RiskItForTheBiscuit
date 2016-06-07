@@ -28,8 +28,12 @@ namespace RiskItForTheBiscuit.Risk
             this.Name = name;
         }      
 
-        public List<Territory> GetAttackableNeighbours()
+        public List<Territory> GetAttackableNeighbours(bool requireSoldiers = false)
         {
+            if (requireSoldiers && NrOfSoldiers == 1)
+            {
+                return new List<Territory>();
+            }
             return new List<Territory>(Neighbours.Where(t => t.Owner != this.Owner));
         }
 
@@ -51,7 +55,7 @@ namespace RiskItForTheBiscuit.Risk
 
         public bool CanAttack(Territory attackedTerritory)
         {
-            return GetAttackableNeighbours().Contains(attackedTerritory);
+            return GetAttackableNeighbours(true).Contains(attackedTerritory);
         }        
 
         public bool ContainsCoordinates(Point click)
