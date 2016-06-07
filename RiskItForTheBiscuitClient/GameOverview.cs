@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using RiskItForTheBiscuitGame.Risk;
 using System.Drawing.Drawing2D;
 using System.Diagnostics;
+using System.Media;
 
 namespace RiskItForTheBiscuit.Risk
 {
@@ -18,6 +19,7 @@ namespace RiskItForTheBiscuit.Risk
         private Game game;
         private Attack attack { get; set; }
         private Territory selectedTerritory { get; set; } = Game.Sea;
+        private SoundPlayer diceSound = new SoundPlayer(@"../../Resources/Dice.mp3");
 
         public GameOverview(Game game)
         {
@@ -99,6 +101,7 @@ namespace RiskItForTheBiscuit.Risk
 
         private void btnResolveOne_Click(object sender, EventArgs e)
         {
+            diceSound.Play();
             attack.ResolveOneTurn();
             RefreshUi();
         }

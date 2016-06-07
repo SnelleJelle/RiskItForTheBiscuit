@@ -42,6 +42,8 @@
             this.lblDefenderTroopsAmount = new System.Windows.Forms.Label();
             this.lblAttackerTroopsAmount = new System.Windows.Forms.Label();
             this.grpBattle = new System.Windows.Forms.GroupBox();
+            this.lblDefenderThrows = new System.Windows.Forms.Label();
+            this.lblAttackerThrows = new System.Windows.Forms.Label();
             this.btnResolveOne = new System.Windows.Forms.Button();
             this.grpBattle.SuspendLayout();
             this.SuspendLayout();
@@ -205,6 +207,8 @@
             // grpBattle
             // 
             this.grpBattle.BackColor = System.Drawing.Color.Transparent;
+            this.grpBattle.Controls.Add(this.lblAttackerThrows);
+            this.grpBattle.Controls.Add(this.lblDefenderThrows);
             this.grpBattle.Controls.Add(this.btnResolveOne);
             this.grpBattle.Controls.Add(this.lblAttackingTerritoryName);
             this.grpBattle.Controls.Add(this.lblAttackerTroopsAmount);
@@ -218,22 +222,48 @@
             this.grpBattle.ForeColor = System.Drawing.Color.White;
             this.grpBattle.Location = new System.Drawing.Point(7, 60);
             this.grpBattle.Name = "grpBattle";
-            this.grpBattle.Size = new System.Drawing.Size(310, 176);
+            this.grpBattle.Size = new System.Drawing.Size(310, 333);
             this.grpBattle.TabIndex = 14;
             this.grpBattle.TabStop = false;
             this.grpBattle.Text = "Battle";
             // 
+            // lblDefenderThrows
+            // 
+            this.lblDefenderThrows.AutoSize = true;
+            this.lblDefenderThrows.BackColor = System.Drawing.Color.Transparent;
+            this.lblDefenderThrows.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDefenderThrows.ForeColor = System.Drawing.Color.White;
+            this.lblDefenderThrows.Location = new System.Drawing.Point(16, 193);
+            this.lblDefenderThrows.Name = "lblDefenderThrows";
+            this.lblDefenderThrows.Size = new System.Drawing.Size(124, 16);
+            this.lblDefenderThrows.TabIndex = 16;
+            this.lblDefenderThrows.Text = "Defender throws:";
+            // 
+            // lblAttackerThrows
+            // 
+            this.lblAttackerThrows.AutoSize = true;
+            this.lblAttackerThrows.BackColor = System.Drawing.Color.Transparent;
+            this.lblAttackerThrows.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAttackerThrows.ForeColor = System.Drawing.Color.White;
+            this.lblAttackerThrows.Location = new System.Drawing.Point(16, 245);
+            this.lblAttackerThrows.Name = "lblAttackerThrows";
+            this.lblAttackerThrows.Size = new System.Drawing.Size(117, 16);
+            this.lblAttackerThrows.TabIndex = 17;
+            this.lblAttackerThrows.Text = "Attacker throws:";
+            // 
             // btnResolveOne
             // 
-            this.btnResolveOne.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnResolveOne.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnResolveOne.BackColor = System.Drawing.Color.Transparent;
+            this.btnResolveOne.BackgroundImage = global::RiskItForTheBiscuitClient.Properties.Resources.DiceThrow;
+            this.btnResolveOne.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnResolveOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResolveOne.ForeColor = System.Drawing.Color.Black;
-            this.btnResolveOne.Location = new System.Drawing.Point(214, 145);
+            this.btnResolveOne.Location = new System.Drawing.Point(240, 144);
             this.btnResolveOne.Name = "btnResolveOne";
-            this.btnResolveOne.Size = new System.Drawing.Size(90, 25);
+            this.btnResolveOne.Size = new System.Drawing.Size(65, 65);
             this.btnResolveOne.TabIndex = 15;
-            this.btnResolveOne.Text = "Resolve";
-            this.btnResolveOne.UseVisualStyleBackColor = true;
+            this.btnResolveOne.UseVisualStyleBackColor = false;
             this.btnResolveOne.Click += new System.EventHandler(this.btnResolveOne_Click);
             // 
             // GameOverview
@@ -274,5 +304,7 @@
         private System.Windows.Forms.Label lblAttackerTroopsAmount;
         private System.Windows.Forms.GroupBox grpBattle;
         private System.Windows.Forms.Button btnResolveOne;
+        private System.Windows.Forms.Label lblAttackerThrows;
+        private System.Windows.Forms.Label lblDefenderThrows;
     }
 }

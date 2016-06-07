@@ -29,12 +29,18 @@ namespace RiskItForTheBiscuit.Risk
 
         public void ResolveOneTurn()
         {
+            
 
         }
 
         public void ResolveUntilFinished()
         {
 
+        }
+
+        private uint getDiceThrow()
+        {
+            return (uint)(new Random().Next(1, 6));
         }
     }
 }

@@ -38,7 +38,7 @@ namespace RiskItForTheBiscuit.Risk
             foreach (Territory territory in GetAllTerritories().Shuffle())
             {
                 territory.Owner = players[index];
-                territory.NrOfSoldiers = Convert.ToUInt32(random.Next(1, 6));
+                territory.NrOfSoldiers = (uint)(random.Next(1, 6));
                 index = (index + 1) % players.Count;
             }
         }
