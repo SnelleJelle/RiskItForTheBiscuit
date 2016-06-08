@@ -9,6 +9,7 @@ using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using RiskItForTheBiscuitGame.Risk;
 using System.Security.Cryptography;
+using System.Diagnostics;
 
 namespace RiskItForTheBiscuit.Risk
 {
@@ -39,13 +40,18 @@ namespace RiskItForTheBiscuit.Risk
                 result.DefenderThrows.Add(getDiceThrow());
             }
             result.DefenderThrows.Sort();
+            result.DefenderThrows.Reverse();
 
             for (int i = 0; i < attackerDice; i++)
             {
                 result.AttackerThrows.Add(getDiceThrow());
             }
             result.AttackerThrows.Sort();
+            result.AttackerThrows.Reverse();
 
+
+
+            Debug.WriteLine(result);
             return result;
         }
 

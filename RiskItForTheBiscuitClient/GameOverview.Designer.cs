@@ -45,7 +45,9 @@
             this.lblDefenderThrows = new System.Windows.Forms.Label();
             this.lblAttackerThrows = new System.Windows.Forms.Label();
             this.btnResolveOne = new System.Windows.Forms.Button();
+            this.picAttackerDice1 = new System.Windows.Forms.PictureBox();
             this.grpBattle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picAttackerDice1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEndTurn
@@ -207,6 +209,7 @@
             // grpBattle
             // 
             this.grpBattle.BackColor = System.Drawing.Color.Transparent;
+            this.grpBattle.Controls.Add(this.picAttackerDice1);
             this.grpBattle.Controls.Add(this.lblAttackerThrows);
             this.grpBattle.Controls.Add(this.lblDefenderThrows);
             this.grpBattle.Controls.Add(this.btnResolveOne);
@@ -255,7 +258,6 @@
             // 
             this.btnResolveOne.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnResolveOne.BackColor = System.Drawing.Color.Transparent;
-            this.btnResolveOne.BackgroundImage = global::RiskItForTheBiscuitClient.Properties.Resources.DiceThrow;
             this.btnResolveOne.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnResolveOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResolveOne.ForeColor = System.Drawing.Color.Black;
@@ -265,6 +267,15 @@
             this.btnResolveOne.TabIndex = 15;
             this.btnResolveOne.UseVisualStyleBackColor = false;
             this.btnResolveOne.Click += new System.EventHandler(this.btnResolveOne_Click);
+            // 
+            // picAttackerDice1
+            // 
+            this.picAttackerDice1.Location = new System.Drawing.Point(25, 216);
+            this.picAttackerDice1.Name = "picAttackerDice1";
+            this.picAttackerDice1.Size = new System.Drawing.Size(25, 25);
+            this.picAttackerDice1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picAttackerDice1.TabIndex = 18;
+            this.picAttackerDice1.TabStop = false;
             // 
             // GameOverview
             // 
@@ -282,6 +293,7 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameOverview_Paint);
             this.grpBattle.ResumeLayout(false);
             this.grpBattle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picAttackerDice1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,5 +318,6 @@
         private System.Windows.Forms.Button btnResolveOne;
         private System.Windows.Forms.Label lblAttackerThrows;
         private System.Windows.Forms.Label lblDefenderThrows;
+        private System.Windows.Forms.PictureBox picAttackerDice1;
     }
 }

@@ -93,14 +93,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Attack.wav" />
+    <Content Include="Resources\Dice.wav" />
     <None Include="Resources\Dice1.png" />
     <None Include="Resources\Dice2.png" />
     <None Include="Resources\Dice3.png" />
+    <None Include="Resources\Dice4.png" />
     <None Include="Resources\Dice5.png" />
     <None Include="Resources\Dice6.png" />
     <None Include="Resources\DiceThrow.png" />
-    <Content Include="Resources\Dice.wav" />
-    <Content Include="Resources\Dice4.png" />
     <Content Include="Resources\Select.wav" />
     <EmbeddedResource Include="Resources\world_map_risk.xml">
       <SubType>Designer</SubType>

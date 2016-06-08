@@ -20,8 +20,8 @@ namespace RiskItForTheBiscuit.Risk
         private Attack attack { get; set; }
         private Territory selectedTerritory { get; set; } = Game.Sea;
         private SoundPlayer diceSound = new SoundPlayer(@"../../Resources/Dice.wav");
-        private Point defenderDiceLocation = new Point(15, 216);
-        private Point attackerDiceLocation = new Point(15, 270);
+        private Point defenderDiceLocation = new Point(25, 216);
+        private Point attackerDiceLocation = new Point(25, 270);
 
         public GameOverview(Game game)
         {
@@ -63,9 +63,12 @@ namespace RiskItForTheBiscuit.Risk
 
         public void Select(Territory selectedTerritory)
         {
-            this.selectedTerritory = selectedTerritory;
-            this.attack = null;
-            RefreshUi();
+            if (selectedTerritory != this.selectedTerritory)
+            {
+                this.selectedTerritory = selectedTerritory;
+                this.attack = null;                
+                RefreshUi();
+            }            
         }
 
         public void Attack(Attack attack)
@@ -92,6 +95,16 @@ namespace RiskItForTheBiscuit.Risk
             {
                 grpBattle.Visible = false;
                 btnEndTurn.Enabled = true;
+                clearDice();
+            }
+        }
+
+        private void clearDice()
+        {
+            foreach (PictureBox pic in grpBattle.Controls.OfType<PictureBox>())
+            {
+                pic.SendToBack();
+                grpBattle.Controls.Remove(pic);
             }
         }
 
@@ -103,6 +116,7 @@ namespace RiskItForTheBiscuit.Risk
 
         private void btnResolveOne_Click(object sender, EventArgs e)
         {
+            clearDice();
             diceSound.Play();
             RefreshUi();
             TurnResult result = attack.ResolveOneTurn();
@@ -120,6 +134,20 @@ namespace RiskItForTheBiscuit.Risk
                 dice.Size = new Size(25, 25);
                 dice.SizeMode = PictureBoxSizeMode.StretchImage;
                 grpBattle.Controls.Add(dice);
+
+                location = new Point(location.X + 30, location.Y);
+            }
+
+            location = attackerDiceLocation;
+            foreach (uint eyes in result.AttackerThrows)
+            {
+                PictureBox dice = new PictureBox();
+                dice.Image = getDiceImage(eyes);
+                dice.Location = location;
+                dice.Size = new Size(25, 25);
+                dice.SizeMode = PictureBoxSizeMode.StretchImage;
+                grpBattle.Controls.Add(dice);
+                dice.BringToFront();
 
                 location = new Point(location.X + 30, location.Y);
             }

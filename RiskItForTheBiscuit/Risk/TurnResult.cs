@@ -10,5 +10,11 @@ namespace RiskItForTheBiscuitGame.Risk
     {
         public List<uint> DefenderThrows { get; set; } = new List<uint>();
         public List<uint> AttackerThrows { get; set; } = new List<uint>();
+
+        public override string ToString()
+        {
+            return string.Format("Defender throws: {0}\nAttacker throws: {1}", 
+                string.Join(", ", DefenderThrows), string.Join(", ", AttackerThrows));
+        }
     }
 }
