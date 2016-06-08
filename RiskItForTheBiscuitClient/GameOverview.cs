@@ -1,36 +1,36 @@
-﻿using System;
+﻿using RiskItForTheBiscuitClient.Properties;
+using RiskItForTheBiscuitGame.Risk;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RiskItForTheBiscuitGame.Risk;
-using System.Drawing.Drawing2D;
-using System.Diagnostics;
-using System.Media;
 
 namespace RiskItForTheBiscuit.Risk
 {
     public partial class GameOverview : UserControl
     {
-        private Game game;
+        public Game Game { get; set; }
         private Attack attack { get; set; }
         private Territory selectedTerritory { get; set; } = Game.Sea;
-        private SoundPlayer diceSound = new SoundPlayer(@"../../Resources/Dice.wav");
+        private SoundPlayer diceSound = new SoundPlayer(Resources.Dice);
         private Point defenderDiceLocation = new Point(25, 216);
         private Point attackerDiceLocation = new Point(25, 270);
 
-        public GameOverview(Game game)
+        public GameOverview()
         {
             InitializeComponent();
-            // Fuck you resources
-            this.btnResolveOne.BackgroundImage = Image.FromFile(@"../../Resources/DiceThrow.png");
 
-            this.game = game;
-            RefreshUi();
+            // Fuck you resources
+            this.btnResolveOne.BackgroundImage = Resources.DiceThrow;
         }
 
         protected override void OnPaintBackground(PaintEventArgs e)
@@ -62,7 +62,7 @@ namespace RiskItForTheBiscuit.Risk
             }            
         }
 
-        public void Attack(Attack attack)
+        public void DisplayAttack(Attack attack)
         {
             this.attack = attack;
             RefreshUi();
@@ -70,7 +70,7 @@ namespace RiskItForTheBiscuit.Risk
 
         public void RefreshUi()
         {
-            lblCurrentPlayerName.Text = game.CurrentPlayer.Nickname;            
+            lblCurrentPlayerName.Text = Game.CurrentPlayer.Nickname;            
             IndicatePhase();
             lblCurrentSelectedTerritory.Text = selectedTerritory.Name;
             if (this.attack != null)
@@ -101,7 +101,7 @@ namespace RiskItForTheBiscuit.Risk
             {
                 phaseLabel.Font = new Font(phaseLabel.Font, FontStyle.Bold);
             }
-            Label lblCurrentPhase = this.Controls["lbl" + game.CurrentPhase.ToString()] as Label;
+            Label lblCurrentPhase = this.Controls["lbl" + Game.CurrentPhase.ToString()] as Label;
             lblCurrentPhase.Font = new Font(lblCurrentPhase.Font, lblCurrentPhase.Font.Style | FontStyle.Underline);
         }
 
@@ -116,7 +116,7 @@ namespace RiskItForTheBiscuit.Risk
         private void btnNextPhase_Click(object sender, EventArgs e)
         {            
             this.attack = null;
-            game.NextPhase();
+            Game.NextPhase();
             RefreshUi();
         }
 

@@ -61,6 +61,24 @@ namespace RiskItForTheBiscuitClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Attack {
+            get {
+                return ResourceManager.GetStream("Attack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Dice {
+            get {
+                return ResourceManager.GetStream("Dice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Dice1 {
@@ -137,6 +155,15 @@ namespace RiskItForTheBiscuitClient.Properties {
             get {
                 object obj = ResourceManager.GetObject("risk_world_map1264x839", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Select {
+            get {
+                return ResourceManager.GetStream("Select", resourceCulture);
             }
         }
         
