@@ -28,6 +28,7 @@ namespace RiskItForTheBiscuitClient
             InitializeComponent();
 
             this.Game = game;
+            game.LabelFont = GraphicsExtension.labelFont;
             game.Start();
 
             overviewPanel = new GameOverview(game);
@@ -39,6 +40,9 @@ namespace RiskItForTheBiscuitClient
             
             this.pbRiskMap.Image = backGround;
             this.pbRiskMap.Size = backGround.Size;
+
+            game.GetAllTerritories().First(t => t.Name == "Venezuela").NrOfSoldiers = 100;
+            game.GetAllTerritories().First(t => t.Name == "Brazil").NrOfSoldiers = 100;
         }
 
         private void frmRisk_Load(object sender, EventArgs e)

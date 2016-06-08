@@ -8,6 +8,7 @@ using RiskItForTheBiscuit.Risk.Extension;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using RiskItForTheBiscuitGame.Risk;
+using System.Diagnostics;
 
 namespace RiskItForTheBiscuit.Risk
 {
@@ -21,6 +22,7 @@ namespace RiskItForTheBiscuit.Risk
         public List<Point> Border { get; set; }
         public Point LabelCoordinates { get; set; }
         public Rectangle LabelRegion { get; set; }
+        public Game Game { get; set; }
         public static Territory Sea { get; } = new Territory("Sea");
 
         public Territory(string name)
@@ -60,23 +62,38 @@ namespace RiskItForTheBiscuit.Risk
 
         public bool ContainsCoordinates(Point click)
         {
+            if (LabelRegion == Rectangle.Empty)
+            {
+                CalculateLabelSize();
+            }
+
             if (LabelRegion.Contains(click))
             {
                 return true;
             }
-            else if (IsInPolygon(Border.ToArray(), click))
+            else if (IsInPolygon(Border, click))
             {
                 return true;
             }
             return false;
         }
 
-        private bool IsInPolygon(Point[] poly, Point click)
+        private void CalculateLabelSize()
+        {
+            Size textSize = TextRenderer.MeasureText(Name, Game.LabelFont);
+            this.LabelRegion = new Rectangle(
+                LabelCoordinates.X - 6,
+                LabelCoordinates.Y - 4,
+                (int)textSize.Width + 35,
+                (int)textSize.Height + 10);
+        }
+
+        private bool IsInPolygon(List<Point> poly, Point click)
         {
             bool isInside = false;
-            for (int i = 0; i < poly.Length; i++)
+            for (int i = 0; i < poly.Count; i++)
             {
-                if (LineIntersectsWidthEdge(poly[i], poly[(i + 1) % poly.Length], click))
+                if (LineIntersectsWidthEdge(poly[i], poly[(i + 1) % poly.Count], click))
                 {
                     isInside = !isInside;
                 }
@@ -113,6 +130,13 @@ namespace RiskItForTheBiscuit.Risk
         public Attack Attack()
         {
             return new Attack(this);
+        }
+
+        public void TakeOwnership(Territory loser)
+        {
+            loser.Owner = this.Owner;
+            loser.NrOfSoldiers = this.NrOfSoldiers - 1;
+            this.NrOfSoldiers = 1;
         }
 
         public override string ToString()

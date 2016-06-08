@@ -42,36 +42,38 @@
             this.lblDefenderTroopsAmount = new System.Windows.Forms.Label();
             this.lblAttackerTroopsAmount = new System.Windows.Forms.Label();
             this.grpBattle = new System.Windows.Forms.GroupBox();
+            this.lblWinnerName = new System.Windows.Forms.Label();
+            this.lblWinner = new System.Windows.Forms.Label();
             this.picDefenderDice6 = new System.Windows.Forms.PictureBox();
             this.picAttackerDice6 = new System.Windows.Forms.PictureBox();
             this.picAttackerDice5 = new System.Windows.Forms.PictureBox();
-            this.picDefenderDice5 = new System.Windows.Forms.PictureBox();
             this.picAttackerDice4 = new System.Windows.Forms.PictureBox();
+            this.picDefenderDice5 = new System.Windows.Forms.PictureBox();
             this.picDefenderDice4 = new System.Windows.Forms.PictureBox();
             this.picAttackerDice3 = new System.Windows.Forms.PictureBox();
             this.picAttackerDice2 = new System.Windows.Forms.PictureBox();
-            this.picDefenderDice3 = new System.Windows.Forms.PictureBox();
+            this.picDefenderDice1 = new System.Windows.Forms.PictureBox();
+            this.lblDefenderThrows = new System.Windows.Forms.Label();
             this.picAttackerDice1 = new System.Windows.Forms.PictureBox();
             this.picDefenderDice2 = new System.Windows.Forms.PictureBox();
             this.lblAttackerThrows = new System.Windows.Forms.Label();
-            this.lblDefenderThrows = new System.Windows.Forms.Label();
-            this.picDefenderDice1 = new System.Windows.Forms.PictureBox();
+            this.picDefenderDice3 = new System.Windows.Forms.PictureBox();
             this.btnResolveOne = new System.Windows.Forms.Button();
-            this.lblWinner = new System.Windows.Forms.Label();
-            this.lblWinnerName = new System.Windows.Forms.Label();
+            this.lblCurrentPhaseName = new System.Windows.Forms.Label();
+            this.lblCurrentPhase = new System.Windows.Forms.Label();
             this.grpBattle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAttackerDice6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAttackerDice5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAttackerDice4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAttackerDice3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAttackerDice2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAttackerDice1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice3)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEndTurn
@@ -92,7 +94,7 @@
             this.lblCurrentPlayer.BackColor = System.Drawing.Color.Transparent;
             this.lblCurrentPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentPlayer.ForeColor = System.Drawing.Color.White;
-            this.lblCurrentPlayer.Location = new System.Drawing.Point(4, 4);
+            this.lblCurrentPlayer.Location = new System.Drawing.Point(13, 4);
             this.lblCurrentPlayer.Name = "lblCurrentPlayer";
             this.lblCurrentPlayer.Size = new System.Drawing.Size(109, 16);
             this.lblCurrentPlayer.TabIndex = 1;
@@ -116,7 +118,7 @@
             this.lblSelectedTerritory.BackColor = System.Drawing.Color.Transparent;
             this.lblSelectedTerritory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSelectedTerritory.ForeColor = System.Drawing.Color.White;
-            this.lblSelectedTerritory.Location = new System.Drawing.Point(4, 29);
+            this.lblSelectedTerritory.Location = new System.Drawing.Point(4, 51);
             this.lblSelectedTerritory.Name = "lblSelectedTerritory";
             this.lblSelectedTerritory.Size = new System.Drawing.Size(120, 15);
             this.lblSelectedTerritory.TabIndex = 3;
@@ -128,7 +130,7 @@
             this.lblCurrentSelectedTerritory.BackColor = System.Drawing.Color.Transparent;
             this.lblCurrentSelectedTerritory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentSelectedTerritory.ForeColor = System.Drawing.Color.White;
-            this.lblCurrentSelectedTerritory.Location = new System.Drawing.Point(129, 29);
+            this.lblCurrentSelectedTerritory.Location = new System.Drawing.Point(129, 51);
             this.lblCurrentSelectedTerritory.Name = "lblCurrentSelectedTerritory";
             this.lblCurrentSelectedTerritory.Size = new System.Drawing.Size(143, 15);
             this.lblCurrentSelectedTerritory.TabIndex = 4;
@@ -188,7 +190,7 @@
             this.lblDefenderTroops.BackColor = System.Drawing.Color.Transparent;
             this.lblDefenderTroops.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDefenderTroops.ForeColor = System.Drawing.Color.White;
-            this.lblDefenderTroops.Location = new System.Drawing.Point(87, 111);
+            this.lblDefenderTroops.Location = new System.Drawing.Point(85, 100);
             this.lblDefenderTroops.Name = "lblDefenderTroops";
             this.lblDefenderTroops.Size = new System.Drawing.Size(55, 15);
             this.lblDefenderTroops.TabIndex = 10;
@@ -200,7 +202,7 @@
             this.lblAttackerTroops.BackColor = System.Drawing.Color.Transparent;
             this.lblAttackerTroops.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAttackerTroops.ForeColor = System.Drawing.Color.White;
-            this.lblAttackerTroops.Location = new System.Drawing.Point(94, 53);
+            this.lblAttackerTroops.Location = new System.Drawing.Point(94, 43);
             this.lblAttackerTroops.Name = "lblAttackerTroops";
             this.lblAttackerTroops.Size = new System.Drawing.Size(55, 15);
             this.lblAttackerTroops.TabIndex = 11;
@@ -212,7 +214,7 @@
             this.lblDefenderTroopsAmount.BackColor = System.Drawing.Color.Transparent;
             this.lblDefenderTroopsAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDefenderTroopsAmount.ForeColor = System.Drawing.Color.White;
-            this.lblDefenderTroopsAmount.Location = new System.Drawing.Point(155, 111);
+            this.lblDefenderTroopsAmount.Location = new System.Drawing.Point(153, 100);
             this.lblDefenderTroopsAmount.Name = "lblDefenderTroopsAmount";
             this.lblDefenderTroopsAmount.Size = new System.Drawing.Size(16, 15);
             this.lblDefenderTroopsAmount.TabIndex = 12;
@@ -224,7 +226,7 @@
             this.lblAttackerTroopsAmount.BackColor = System.Drawing.Color.Transparent;
             this.lblAttackerTroopsAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAttackerTroopsAmount.ForeColor = System.Drawing.Color.White;
-            this.lblAttackerTroopsAmount.Location = new System.Drawing.Point(162, 53);
+            this.lblAttackerTroopsAmount.Location = new System.Drawing.Point(162, 43);
             this.lblAttackerTroopsAmount.Name = "lblAttackerTroopsAmount";
             this.lblAttackerTroopsAmount.Size = new System.Drawing.Size(15, 15);
             this.lblAttackerTroopsAmount.TabIndex = 13;
@@ -260,12 +262,33 @@
             this.grpBattle.Controls.Add(this.lblAttackerTroops);
             this.grpBattle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpBattle.ForeColor = System.Drawing.Color.White;
-            this.grpBattle.Location = new System.Drawing.Point(7, 60);
+            this.grpBattle.Location = new System.Drawing.Point(0, 95);
             this.grpBattle.Name = "grpBattle";
             this.grpBattle.Size = new System.Drawing.Size(310, 355);
             this.grpBattle.TabIndex = 14;
             this.grpBattle.TabStop = false;
             this.grpBattle.Text = "Battle";
+            // 
+            // lblWinnerName
+            // 
+            this.lblWinnerName.AutoSize = true;
+            this.lblWinnerName.BackColor = System.Drawing.Color.Transparent;
+            this.lblWinnerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWinnerName.ForeColor = System.Drawing.Color.White;
+            this.lblWinnerName.Location = new System.Drawing.Point(140, 318);
+            this.lblWinnerName.Name = "lblWinnerName";
+            this.lblWinnerName.Size = new System.Drawing.Size(76, 15);
+            this.lblWinnerName.TabIndex = 31;
+            this.lblWinnerName.Text = "Undecided";
+            // 
+            // lblWinner
+            // 
+            this.lblWinner.AutoSize = true;
+            this.lblWinner.Location = new System.Drawing.Point(19, 318);
+            this.lblWinner.Name = "lblWinner";
+            this.lblWinner.Size = new System.Drawing.Size(103, 16);
+            this.lblWinner.TabIndex = 30;
+            this.lblWinner.Text = "The winner is:";
             // 
             // picDefenderDice6
             // 
@@ -294,15 +317,6 @@
             this.picAttackerDice5.TabIndex = 22;
             this.picAttackerDice5.TabStop = false;
             // 
-            // picDefenderDice5
-            // 
-            this.picDefenderDice5.Location = new System.Drawing.Point(143, 272);
-            this.picDefenderDice5.Name = "picDefenderDice5";
-            this.picDefenderDice5.Size = new System.Drawing.Size(25, 25);
-            this.picDefenderDice5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picDefenderDice5.TabIndex = 28;
-            this.picDefenderDice5.TabStop = false;
-            // 
             // picAttackerDice4
             // 
             this.picAttackerDice4.Location = new System.Drawing.Point(112, 214);
@@ -311,6 +325,15 @@
             this.picAttackerDice4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picAttackerDice4.TabIndex = 21;
             this.picAttackerDice4.TabStop = false;
+            // 
+            // picDefenderDice5
+            // 
+            this.picDefenderDice5.Location = new System.Drawing.Point(143, 272);
+            this.picDefenderDice5.Name = "picDefenderDice5";
+            this.picDefenderDice5.Size = new System.Drawing.Size(25, 25);
+            this.picDefenderDice5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picDefenderDice5.TabIndex = 28;
+            this.picDefenderDice5.TabStop = false;
             // 
             // picDefenderDice4
             // 
@@ -339,14 +362,26 @@
             this.picAttackerDice2.TabIndex = 19;
             this.picAttackerDice2.TabStop = false;
             // 
-            // picDefenderDice3
+            // picDefenderDice1
             // 
-            this.picDefenderDice3.Location = new System.Drawing.Point(81, 271);
-            this.picDefenderDice3.Name = "picDefenderDice3";
-            this.picDefenderDice3.Size = new System.Drawing.Size(25, 25);
-            this.picDefenderDice3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picDefenderDice3.TabIndex = 26;
-            this.picDefenderDice3.TabStop = false;
+            this.picDefenderDice1.Location = new System.Drawing.Point(19, 272);
+            this.picDefenderDice1.Name = "picDefenderDice1";
+            this.picDefenderDice1.Size = new System.Drawing.Size(25, 25);
+            this.picDefenderDice1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picDefenderDice1.TabIndex = 24;
+            this.picDefenderDice1.TabStop = false;
+            // 
+            // lblDefenderThrows
+            // 
+            this.lblDefenderThrows.AutoSize = true;
+            this.lblDefenderThrows.BackColor = System.Drawing.Color.Transparent;
+            this.lblDefenderThrows.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDefenderThrows.ForeColor = System.Drawing.Color.White;
+            this.lblDefenderThrows.Location = new System.Drawing.Point(16, 253);
+            this.lblDefenderThrows.Name = "lblDefenderThrows";
+            this.lblDefenderThrows.Size = new System.Drawing.Size(124, 16);
+            this.lblDefenderThrows.TabIndex = 16;
+            this.lblDefenderThrows.Text = "Defender throws:";
             // 
             // picAttackerDice1
             // 
@@ -378,26 +413,14 @@
             this.lblAttackerThrows.TabIndex = 17;
             this.lblAttackerThrows.Text = "Attacker throws:";
             // 
-            // lblDefenderThrows
+            // picDefenderDice3
             // 
-            this.lblDefenderThrows.AutoSize = true;
-            this.lblDefenderThrows.BackColor = System.Drawing.Color.Transparent;
-            this.lblDefenderThrows.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDefenderThrows.ForeColor = System.Drawing.Color.White;
-            this.lblDefenderThrows.Location = new System.Drawing.Point(16, 253);
-            this.lblDefenderThrows.Name = "lblDefenderThrows";
-            this.lblDefenderThrows.Size = new System.Drawing.Size(124, 16);
-            this.lblDefenderThrows.TabIndex = 16;
-            this.lblDefenderThrows.Text = "Defender throws:";
-            // 
-            // picDefenderDice1
-            // 
-            this.picDefenderDice1.Location = new System.Drawing.Point(19, 272);
-            this.picDefenderDice1.Name = "picDefenderDice1";
-            this.picDefenderDice1.Size = new System.Drawing.Size(25, 25);
-            this.picDefenderDice1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picDefenderDice1.TabIndex = 24;
-            this.picDefenderDice1.TabStop = false;
+            this.picDefenderDice3.Location = new System.Drawing.Point(81, 271);
+            this.picDefenderDice3.Name = "picDefenderDice3";
+            this.picDefenderDice3.Size = new System.Drawing.Size(25, 25);
+            this.picDefenderDice3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picDefenderDice3.TabIndex = 26;
+            this.picDefenderDice3.TabStop = false;
             // 
             // btnResolveOne
             // 
@@ -413,32 +436,37 @@
             this.btnResolveOne.UseVisualStyleBackColor = false;
             this.btnResolveOne.Click += new System.EventHandler(this.btnResolveOne_Click);
             // 
-            // lblWinner
+            // lblCurrentPhaseName
             // 
-            this.lblWinner.AutoSize = true;
-            this.lblWinner.Location = new System.Drawing.Point(19, 318);
-            this.lblWinner.Name = "lblWinner";
-            this.lblWinner.Size = new System.Drawing.Size(103, 16);
-            this.lblWinner.TabIndex = 30;
-            this.lblWinner.Text = "The winner is:";
+            this.lblCurrentPhaseName.AutoSize = true;
+            this.lblCurrentPhaseName.BackColor = System.Drawing.Color.Transparent;
+            this.lblCurrentPhaseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentPhaseName.ForeColor = System.Drawing.Color.White;
+            this.lblCurrentPhaseName.Location = new System.Drawing.Point(130, 27);
+            this.lblCurrentPhaseName.Name = "lblCurrentPhaseName";
+            this.lblCurrentPhaseName.Size = new System.Drawing.Size(88, 15);
+            this.lblCurrentPhaseName.TabIndex = 16;
+            this.lblCurrentPhaseName.Text = "Some Phase";
             // 
-            // lblWinnerName
+            // lblCurrentPhase
             // 
-            this.lblWinnerName.AutoSize = true;
-            this.lblWinnerName.BackColor = System.Drawing.Color.Transparent;
-            this.lblWinnerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWinnerName.ForeColor = System.Drawing.Color.White;
-            this.lblWinnerName.Location = new System.Drawing.Point(140, 318);
-            this.lblWinnerName.Name = "lblWinnerName";
-            this.lblWinnerName.Size = new System.Drawing.Size(76, 15);
-            this.lblWinnerName.TabIndex = 31;
-            this.lblWinnerName.Text = "Undecided";
+            this.lblCurrentPhase.AutoSize = true;
+            this.lblCurrentPhase.BackColor = System.Drawing.Color.Transparent;
+            this.lblCurrentPhase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentPhase.ForeColor = System.Drawing.Color.White;
+            this.lblCurrentPhase.Location = new System.Drawing.Point(25, 27);
+            this.lblCurrentPhase.Name = "lblCurrentPhase";
+            this.lblCurrentPhase.Size = new System.Drawing.Size(97, 15);
+            this.lblCurrentPhase.TabIndex = 15;
+            this.lblCurrentPhase.Text = "Curren phase:";
             // 
             // GameOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.Controls.Add(this.lblCurrentPhaseName);
+            this.Controls.Add(this.lblCurrentPhase);
             this.Controls.Add(this.grpBattle);
             this.Controls.Add(this.lblCurrentSelectedTerritory);
             this.Controls.Add(this.lblSelectedTerritory);
@@ -452,15 +480,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAttackerDice6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAttackerDice5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAttackerDice4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAttackerDice3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAttackerDice2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAttackerDice1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -499,5 +527,7 @@
         private System.Windows.Forms.PictureBox picAttackerDice2;
         private System.Windows.Forms.Label lblWinner;
         private System.Windows.Forms.Label lblWinnerName;
+        private System.Windows.Forms.Label lblCurrentPhaseName;
+        private System.Windows.Forms.Label lblCurrentPhase;
     }
 }

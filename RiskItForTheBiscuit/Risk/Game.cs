@@ -16,13 +16,22 @@ namespace RiskItForTheBiscuit.Risk
 {
     public class Game
     {
+        public string GameName { get; set; }
+        public GamePhase CurrentPhase = GamePhase.PlaceTroops;
         public List<Continent> Continents { get; set; } = new List<Continent>();
         public List<Player> Players { get; set; } = new List<Player>();
         public Player CurrentPlayer { get; set; }
-        private int currentPlayerIndex = 0;
+        private int currentPlayerIndex = 0; 
         public Size GameSize { get; set; }
-        public string GameName { get; set; }
+        public Font LabelFont { get; set; }
+
         public static Territory Sea { get; } = Territory.Sea;
+        public enum GamePhase
+        {
+            PlaceTroops,
+            Attack,
+            MoveTroops
+        }
 
         public Game(string gameName)
         {
@@ -83,6 +92,7 @@ namespace RiskItForTheBiscuit.Risk
         public void Start()
         {
             CurrentPlayer = Players[currentPlayerIndex];
+            CurrentPhase = GamePhase.PlaceTroops;
         }
 
         public void NextTurn()

@@ -36,23 +36,19 @@ namespace RiskItForTheBiscuit.Risk
         protected override void OnPaintBackground(PaintEventArgs e)
         {
             base.OnPaintBackground(e);
+            Graphics g = e.Graphics;
 
             using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle,
                                                                        Color.FromArgb(25, 35, 50),
-                                                                       Color.FromArgb(40, 50, 65),
-                                                                       0f))
+                                                                       Color.FromArgb(45, 55, 70),
+                                                                       25f))
             {
-                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+                g.FillRectangle(brush, this.ClientRectangle);
             }
-        }
+            g.DrawLine(Pens.White, new Point(0, 0), new Point(0, this.ClientSize.Height));
 
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
-
-            Graphics g = e.Graphics;
-            Pen pen = new Pen(Color.WhiteSmoke) { Width = 1};
-            int height = 47;
+            Pen pen = new Pen(Color.WhiteSmoke) { Width = 1 };
+            int height = 75;
             g.DrawLine(pen, 0, height, this.ClientSize.Width, height);
         }
 
@@ -121,9 +117,7 @@ namespace RiskItForTheBiscuit.Risk
             if (result.AttackerWon)
             {
                 btnResolveOne.Enabled = false;
-                attack.DefendingTerritory.Owner = attack.AttackingTerritory.Owner;
-                attack.DefendingTerritory.NrOfSoldiers = attack.AttackingTerritory.NrOfSoldiers - 1;
-                attack.DefendingTerritory.NrOfSoldiers = 1;
+                attack.AttackingTerritory.TakeOwnership(attack.DefendingTerritory);
                 lblWinnerName.Text = attack.AttackingTerritory.Name;
                 btnEndTurn.Enabled = true;
             }
