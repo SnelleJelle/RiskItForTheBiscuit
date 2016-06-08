@@ -27,8 +27,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
-        {
-            this.btnEndTurn = new System.Windows.Forms.Button();
+        {            
             this.lblCurrentPlayer = new System.Windows.Forms.Label();
             this.lblCurrentPlayerName = new System.Windows.Forms.Label();
             this.lblSelectedTerritory = new System.Windows.Forms.Label();
@@ -59,8 +58,10 @@
             this.lblAttackerThrows = new System.Windows.Forms.Label();
             this.picDefenderDice3 = new System.Windows.Forms.PictureBox();
             this.btnResolveOne = new System.Windows.Forms.Button();
-            this.lblCurrentPhaseName = new System.Windows.Forms.Label();
-            this.lblCurrentPhase = new System.Windows.Forms.Label();
+            this.lblPlaceTroops = new System.Windows.Forms.Label();
+            this.btnNextPhase = new System.Windows.Forms.Button();
+            this.lblAttack = new System.Windows.Forms.Label();
+            this.lblMoveTroops = new System.Windows.Forms.Label();
             this.grpBattle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAttackerDice6)).BeginInit();
@@ -75,18 +76,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDefenderDice3)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnEndTurn
-            // 
-            this.btnEndTurn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEndTurn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEndTurn.Location = new System.Drawing.Point(205, 611);
-            this.btnEndTurn.Name = "btnEndTurn";
-            this.btnEndTurn.Size = new System.Drawing.Size(112, 36);
-            this.btnEndTurn.TabIndex = 0;
-            this.btnEndTurn.Text = "End Turn";
-            this.btnEndTurn.UseVisualStyleBackColor = true;
-            this.btnEndTurn.Click += new System.EventHandler(this.btnEndTurn_Click);
             // 
             // lblCurrentPlayer
             // 
@@ -262,7 +251,7 @@
             this.grpBattle.Controls.Add(this.lblAttackerTroops);
             this.grpBattle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpBattle.ForeColor = System.Drawing.Color.White;
-            this.grpBattle.Location = new System.Drawing.Point(0, 95);
+            this.grpBattle.Location = new System.Drawing.Point(0, 80);
             this.grpBattle.Name = "grpBattle";
             this.grpBattle.Size = new System.Drawing.Size(310, 355);
             this.grpBattle.TabIndex = 14;
@@ -436,43 +425,71 @@
             this.btnResolveOne.UseVisualStyleBackColor = false;
             this.btnResolveOne.Click += new System.EventHandler(this.btnResolveOne_Click);
             // 
-            // lblCurrentPhaseName
+            // lblPlaceTroops
             // 
-            this.lblCurrentPhaseName.AutoSize = true;
-            this.lblCurrentPhaseName.BackColor = System.Drawing.Color.Transparent;
-            this.lblCurrentPhaseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentPhaseName.ForeColor = System.Drawing.Color.White;
-            this.lblCurrentPhaseName.Location = new System.Drawing.Point(130, 27);
-            this.lblCurrentPhaseName.Name = "lblCurrentPhaseName";
-            this.lblCurrentPhaseName.Size = new System.Drawing.Size(88, 15);
-            this.lblCurrentPhaseName.TabIndex = 16;
-            this.lblCurrentPhaseName.Text = "Some Phase";
+            this.lblPlaceTroops.AutoSize = true;
+            this.lblPlaceTroops.BackColor = System.Drawing.Color.Transparent;
+            this.lblPlaceTroops.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaceTroops.ForeColor = System.Drawing.Color.White;
+            this.lblPlaceTroops.Location = new System.Drawing.Point(13, 28);
+            this.lblPlaceTroops.Name = "lblPlaceTroops";
+            this.lblPlaceTroops.Size = new System.Drawing.Size(91, 15);
+            this.lblPlaceTroops.TabIndex = 15;
+            this.lblPlaceTroops.Tag = "Phase";
+            this.lblPlaceTroops.Text = "Place Troops";
             // 
-            // lblCurrentPhase
+            // btnNextPhase
             // 
-            this.lblCurrentPhase.AutoSize = true;
-            this.lblCurrentPhase.BackColor = System.Drawing.Color.Transparent;
-            this.lblCurrentPhase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentPhase.ForeColor = System.Drawing.Color.White;
-            this.lblCurrentPhase.Location = new System.Drawing.Point(25, 27);
-            this.lblCurrentPhase.Name = "lblCurrentPhase";
-            this.lblCurrentPhase.Size = new System.Drawing.Size(97, 15);
-            this.lblCurrentPhase.TabIndex = 15;
-            this.lblCurrentPhase.Text = "Curren phase:";
+            this.btnNextPhase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNextPhase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNextPhase.Location = new System.Drawing.Point(205, 611);
+            this.btnNextPhase.Name = "btnNextPhase";
+            this.btnNextPhase.Size = new System.Drawing.Size(112, 36);
+            this.btnNextPhase.TabIndex = 0;
+            this.btnNextPhase.Text = "Next Phase";
+            this.btnNextPhase.UseVisualStyleBackColor = true;
+            this.btnNextPhase.Click += new System.EventHandler(this.btnNextPhase_Click);
+            // 
+            // lblAttack
+            // 
+            this.lblAttack.AutoSize = true;
+            this.lblAttack.BackColor = System.Drawing.Color.Transparent;
+            this.lblAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAttack.ForeColor = System.Drawing.Color.White;
+            this.lblAttack.Location = new System.Drawing.Point(140, 28);
+            this.lblAttack.Name = "lblAttack";
+            this.lblAttack.Size = new System.Drawing.Size(45, 15);
+            this.lblAttack.TabIndex = 16;
+            this.lblAttack.Tag = "Phase";
+            this.lblAttack.Text = "Attack";
+            // 
+            // lblMoveTroops
+            // 
+            this.lblMoveTroops.AutoSize = true;
+            this.lblMoveTroops.BackColor = System.Drawing.Color.Transparent;
+            this.lblMoveTroops.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMoveTroops.ForeColor = System.Drawing.Color.White;
+            this.lblMoveTroops.Location = new System.Drawing.Point(219, 28);
+            this.lblMoveTroops.Name = "lblMoveTroops";
+            this.lblMoveTroops.Size = new System.Drawing.Size(89, 15);
+            this.lblMoveTroops.TabIndex = 17;
+            this.lblMoveTroops.Tag = "Phase";
+            this.lblMoveTroops.Text = "Move Troops";
             // 
             // GameOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.Controls.Add(this.lblCurrentPhaseName);
-            this.Controls.Add(this.lblCurrentPhase);
+            this.Controls.Add(this.lblMoveTroops);
+            this.Controls.Add(this.lblAttack);
+            this.Controls.Add(this.lblPlaceTroops);
             this.Controls.Add(this.grpBattle);
             this.Controls.Add(this.lblCurrentSelectedTerritory);
             this.Controls.Add(this.lblSelectedTerritory);
             this.Controls.Add(this.lblCurrentPlayerName);
             this.Controls.Add(this.lblCurrentPlayer);
-            this.Controls.Add(this.btnEndTurn);
+            this.Controls.Add(this.btnNextPhase);
             this.Name = "GameOverview";
             this.Size = new System.Drawing.Size(320, 650);
             this.grpBattle.ResumeLayout(false);
@@ -496,7 +513,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnEndTurn;
+        private System.Windows.Forms.Button btnNextPhase;
         private System.Windows.Forms.Label lblCurrentPlayer;
         private System.Windows.Forms.Label lblCurrentPlayerName;
         private System.Windows.Forms.Label lblSelectedTerritory;
@@ -527,7 +544,8 @@
         private System.Windows.Forms.PictureBox picAttackerDice2;
         private System.Windows.Forms.Label lblWinner;
         private System.Windows.Forms.Label lblWinnerName;
-        private System.Windows.Forms.Label lblCurrentPhaseName;
-        private System.Windows.Forms.Label lblCurrentPhase;
+        private System.Windows.Forms.Label lblPlaceTroops;
+        private System.Windows.Forms.Label lblAttack;
+        private System.Windows.Forms.Label lblMoveTroops;
     }
 }

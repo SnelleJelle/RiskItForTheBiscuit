@@ -42,6 +42,7 @@ namespace RiskItForTheBiscuitClient
             // 
             // mainMenuStrip
             // 
+            this.mainMenuStrip.BackColor = System.Drawing.Color.Transparent;
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.playersToolStripMenuItem,
             this.chatToolStripMenuItem,
@@ -51,16 +52,19 @@ namespace RiskItForTheBiscuitClient
             // 
             // playersToolStripMenuItem
             // 
+            this.playersToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.playersToolStripMenuItem.Name = "playersToolStripMenuItem";
             resources.ApplyResources(this.playersToolStripMenuItem, "playersToolStripMenuItem");
             // 
             // chatToolStripMenuItem
             // 
+            this.chatToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.chatToolStripMenuItem.Name = "chatToolStripMenuItem";
             resources.ApplyResources(this.chatToolStripMenuItem, "chatToolStripMenuItem");
             // 
             // aboutToolStripMenuItem
             // 
+            this.aboutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             resources.ApplyResources(this.aboutToolStripMenuItem, "aboutToolStripMenuItem");
             // 
@@ -77,7 +81,7 @@ namespace RiskItForTheBiscuitClient
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(148)))), ((int)(((byte)(173)))));
+            this.BackColor = System.Drawing.Color.Black;
             this.Controls.Add(this.pbRiskMap);
             this.Controls.Add(this.mainMenuStrip);
             this.KeyPreview = true;

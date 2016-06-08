@@ -70,14 +70,15 @@ namespace RiskItForTheBiscuit.Risk
 
         public void RefreshUi()
         {
-            lblCurrentPlayerName.Text = game.CurrentPlayer.Nickname;
+            lblCurrentPlayerName.Text = game.CurrentPlayer.Nickname;            
+            IndicatePhase();
             lblCurrentSelectedTerritory.Text = selectedTerritory.Name;
             if (this.attack != null)
             {
                 grpBattle.Visible = true;
                 lblWinnerName.Text = "Undecided";
                 btnResolveOne.Enabled = true;
-                btnEndTurn.Enabled = false;             
+                btnNextPhase.Enabled = false;             
 
                 lblDefendingTerritoryName.Text = attack.DefendingTerritory.Name;
                 lblAttackingTerritoryName.Text = attack.AttackingTerritory.Name;
@@ -87,9 +88,21 @@ namespace RiskItForTheBiscuit.Risk
             else
             {
                 grpBattle.Visible = false;
-                btnEndTurn.Enabled = true;
+                btnNextPhase.Enabled = true;
                 clearDice();
             }
+        }
+
+        private void IndicatePhase()
+        {
+            var phaselabels = Controls.OfType<Label>().Where(l => (string)l.Tag == "Phase");
+
+            foreach (Label phaseLabel in phaselabels)
+            {
+                phaseLabel.Font = new Font(phaseLabel.Font, FontStyle.Bold);
+            }
+            Label lblCurrentPhase = this.Controls["lbl" + game.CurrentPhase.ToString()] as Label;
+            lblCurrentPhase.Font = new Font(lblCurrentPhase.Font, lblCurrentPhase.Font.Style | FontStyle.Underline);
         }
 
         private void clearDice()
@@ -100,9 +113,10 @@ namespace RiskItForTheBiscuit.Risk
             }
         }
 
-        private void btnEndTurn_Click(object sender, EventArgs e)
-        {
-            game.NextTurn();
+        private void btnNextPhase_Click(object sender, EventArgs e)
+        {            
+            this.attack = null;
+            game.NextPhase();
             RefreshUi();
         }
 
@@ -119,13 +133,13 @@ namespace RiskItForTheBiscuit.Risk
                 btnResolveOne.Enabled = false;
                 attack.AttackingTerritory.TakeOwnership(attack.DefendingTerritory);
                 lblWinnerName.Text = attack.AttackingTerritory.Name;
-                btnEndTurn.Enabled = true;
+                btnNextPhase.Enabled = true;
             }
             else if (result.DefenderWon)
             {
                 btnResolveOne.Enabled = false;
                 lblWinnerName.Text = attack.DefendingTerritory.Name;
-                btnEndTurn.Enabled = true;
+                btnNextPhase.Enabled = true;
             }
 
             this.Parent.Refresh();

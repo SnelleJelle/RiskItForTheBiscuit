@@ -82,7 +82,7 @@ namespace RiskItForTheBiscuitClient
             }
             foreach (Territory territory in Game.GetAllTerritories().Except(new List<Territory>(alreadyDrawn)))
             {
-                g.DrawLabel(territory);                
+                g.DrawLabel(territory);        
             }
         }
 
@@ -119,6 +119,19 @@ namespace RiskItForTheBiscuitClient
                 attack(clicked);
             }
             pbRiskMap.Refresh();
+        }
+
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            base.OnPaintBackground(e);
+            Graphics g = e.Graphics;
+
+            using (Brush brush = new SolidBrush(Color.FromArgb(25, 35, 50)))
+            {
+                Rectangle menuBackground = this.ClientRectangle;
+                menuBackground.Height = 30;
+                g.FillRectangle(brush, menuBackground);
+            }
         }
     }
 }
