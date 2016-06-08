@@ -26,16 +26,11 @@ namespace RiskItForTheBiscuit.Risk
         public GameOverview(Game game)
         {
             InitializeComponent();
+            // Fuck you resources
+            this.btnResolveOne.BackgroundImage = Image.FromFile(@"../../Resources/DiceThrow.png");
 
             this.game = game;
             RefreshUi();
-
-        }
-
-        private void GameOverview_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            g.DrawArc(Pens.AliceBlue, new Rectangle(5, 5, 50, 50), 5f, 10f);
         }
 
         protected override void OnPaintBackground(PaintEventArgs e)
@@ -53,7 +48,7 @@ namespace RiskItForTheBiscuit.Risk
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            // base.OnPaint(e); // Draws glitchy white pixels
+            base.OnPaint(e);
 
             Graphics g = e.Graphics;
             Pen pen = new Pen(Color.WhiteSmoke) { Width = 1};
@@ -84,6 +79,8 @@ namespace RiskItForTheBiscuit.Risk
             if (this.attack != null)
             {
                 grpBattle.Visible = true;
+                lblWinnerName.Text = "Undecided";
+                btnResolveOne.Enabled = true;
                 btnEndTurn.Enabled = false;             
 
                 lblDefendingTerritoryName.Text = attack.DefendingTerritory.Name;
@@ -103,8 +100,7 @@ namespace RiskItForTheBiscuit.Risk
         {
             foreach (PictureBox pic in grpBattle.Controls.OfType<PictureBox>())
             {
-                pic.SendToBack();
-                grpBattle.Controls.Remove(pic);
+                pic.Image = null;
             }
         }
 
@@ -117,39 +113,46 @@ namespace RiskItForTheBiscuit.Risk
         private void btnResolveOne_Click(object sender, EventArgs e)
         {
             clearDice();
-            diceSound.Play();
-            RefreshUi();
+            diceSound.Play();            
             TurnResult result = attack.ResolveOneTurn();
+            RefreshUi();
             DisplayDiceAsImage(result);
+
+            if (result.AttackerWon)
+            {
+                btnResolveOne.Enabled = false;
+                attack.DefendingTerritory.Owner = attack.AttackingTerritory.Owner;
+                attack.DefendingTerritory.NrOfSoldiers = attack.AttackingTerritory.NrOfSoldiers - 1;
+                attack.DefendingTerritory.NrOfSoldiers = 1;
+                lblWinnerName.Text = attack.AttackingTerritory.Name;
+                btnEndTurn.Enabled = true;
+            }
+            else if (result.DefenderWon)
+            {
+                btnResolveOne.Enabled = false;
+                lblWinnerName.Text = attack.DefendingTerritory.Name;
+                btnEndTurn.Enabled = true;
+            }
+
+            this.Parent.Refresh();
         }
 
         private void DisplayDiceAsImage(TurnResult result)
         {
-            Point location = defenderDiceLocation;
+            int diceIndex = 1;
             foreach(uint eyes in result.DefenderThrows)
             {
-                PictureBox dice = new PictureBox();
-                dice.Image = getDiceImage(eyes);
-                dice.Location = location;
-                dice.Size = new Size(25, 25);
-                dice.SizeMode = PictureBoxSizeMode.StretchImage;
-                grpBattle.Controls.Add(dice);
-
-                location = new Point(location.X + 30, location.Y);
+                PictureBox dice = grpBattle.Controls["picDefenderDice" + diceIndex] as PictureBox;
+                dice.Image = getDiceImage(eyes);     
+                diceIndex++;
             }
 
-            location = attackerDiceLocation;
+            diceIndex = 1;
             foreach (uint eyes in result.AttackerThrows)
             {
-                PictureBox dice = new PictureBox();
+                PictureBox dice = grpBattle.Controls["picAttackerDice" + diceIndex] as PictureBox;
                 dice.Image = getDiceImage(eyes);
-                dice.Location = location;
-                dice.Size = new Size(25, 25);
-                dice.SizeMode = PictureBoxSizeMode.StretchImage;
-                grpBattle.Controls.Add(dice);
-                dice.BringToFront();
-
-                location = new Point(location.X + 30, location.Y);
+                diceIndex++;
             }
         }
 

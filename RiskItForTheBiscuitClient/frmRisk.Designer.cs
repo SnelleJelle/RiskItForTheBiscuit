@@ -1,4 +1,6 @@
-﻿namespace RiskItForTheBiscuitClient
+﻿using System.Drawing;
+
+namespace RiskItForTheBiscuitClient
 {
     partial class frmRisk
     {
@@ -66,7 +68,6 @@
             // 
             this.pbRiskMap.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.pbRiskMap, "pbRiskMap");
-            this.pbRiskMap.Image = global::RiskItForTheBiscuitClient.Properties.Resources.risk_world_map1264x839;
             this.pbRiskMap.Name = "pbRiskMap";
             this.pbRiskMap.TabStop = false;
             this.pbRiskMap.Paint += new System.Windows.Forms.PaintEventHandler(this.pbRiskMap_Paint);

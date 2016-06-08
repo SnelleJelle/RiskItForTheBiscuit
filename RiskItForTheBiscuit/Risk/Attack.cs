@@ -17,6 +17,8 @@ namespace RiskItForTheBiscuit.Risk
     {
         public Territory DefendingTerritory { get; set; }
         public Territory AttackingTerritory { get; set; }
+        public static uint DICE_ATTACKER = 2;
+        public static uint DICE_DEFENDER = 3;
 
         public Attack(Territory defendingTerritory)
         {
@@ -32,8 +34,8 @@ namespace RiskItForTheBiscuit.Risk
         public TurnResult ResolveOneTurn()
         {
             TurnResult result = new TurnResult();
-            uint defenderDice = Math.Min(DefendingTerritory.NrOfSoldiers, 3);
-            uint attackerDice = Math.Min(AttackingTerritory.NrOfSoldiers, 2);
+            uint defenderDice = Math.Min(DefendingTerritory.NrOfSoldiers, DICE_DEFENDER);
+            uint attackerDice = Math.Min(AttackingTerritory.NrOfSoldiers - 1, DICE_ATTACKER);
 
             for (int i = 0; i < defenderDice; i++)
             {
@@ -49,15 +51,21 @@ namespace RiskItForTheBiscuit.Risk
             result.AttackerThrows.Sort();
             result.AttackerThrows.Reverse();
 
-
-
+            for (int i = 0; i < Math.Min(defenderDice, attackerDice); i++)
+            {
+                if(result.DefenderThrows[i] >= result.AttackerThrows[i])
+                {
+                    AttackingTerritory.NrOfSoldiers--;
+                }
+                else
+                {
+                    DefendingTerritory.NrOfSoldiers--;
+                }
+            }
             Debug.WriteLine(result);
+            result.AttackerWon = (DefendingTerritory.NrOfSoldiers <= 0);
+            result.DefenderWon = (AttackingTerritory.NrOfSoldiers <= 1);
             return result;
-        }
-
-        public void ResolveUntilFinished()
-        {
-
         }
 
         private uint getDiceThrow(uint min = 1, uint max = 6)

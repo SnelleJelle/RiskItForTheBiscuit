@@ -10,6 +10,8 @@ namespace RiskItForTheBiscuitGame.Risk
     {
         public List<uint> DefenderThrows { get; set; } = new List<uint>();
         public List<uint> AttackerThrows { get; set; } = new List<uint>();
+        public bool AttackerWon { get; set; } = false;
+        public bool DefenderWon { get; set; } = false;
 
         public override string ToString()
         {
