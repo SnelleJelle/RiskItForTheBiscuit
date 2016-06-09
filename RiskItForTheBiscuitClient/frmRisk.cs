@@ -122,8 +122,11 @@ namespace RiskItForTheBiscuitClient
             using (Brush brush = new SolidBrush(Color.FromArgb(25, 35, 50)))
             {
                 Rectangle menuBackground = this.ClientRectangle;
-                menuBackground.Height = 30;
+                menuBackground.Height = mainMenuStrip.Height - 1;
                 g.FillRectangle(brush, menuBackground);
+
+                Pen pen = new Pen(Color.WhiteSmoke) { Width = 1 };
+                g.DrawLine(pen, 0, menuBackground.Height, ClientSize.Width, menuBackground.Height);
             }
         }
     }
