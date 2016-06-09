@@ -28,9 +28,6 @@ namespace RiskItForTheBiscuit.Risk
         public GameOverview()
         {
             InitializeComponent();
-
-            // Fuck you resources
-            this.btnResolveOne.BackgroundImage = Resources.DiceThrow;
         }
 
         protected override void OnPaintBackground(PaintEventArgs e)

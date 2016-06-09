@@ -415,6 +415,7 @@
             // 
             this.btnResolveOne.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnResolveOne.BackColor = System.Drawing.Color.Transparent;
+            this.btnResolveOne.BackgroundImage = global::RiskItForTheBiscuitClient.Properties.Resources.DiceThrow;
             this.btnResolveOne.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnResolveOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResolveOne.ForeColor = System.Drawing.Color.Black;
