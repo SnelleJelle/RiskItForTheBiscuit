@@ -79,6 +79,7 @@
     <Compile Include="Risk\Player.cs" />
     <Compile Include="Risk\Territory.cs" />
     <Compile Include="Risk\Game.cs" />
+    <Compile Include="Risk\TurnResult.cs" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

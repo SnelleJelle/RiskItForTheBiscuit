@@ -40,7 +40,8 @@ namespace RiskItForTheBiscuitGame.Risk
                     Territory territory = new Territory(name)
                     {
                         LabelCoordinates = toPoint(labelPointValue),
-                        Border = toPointList(borderPointsValue)
+                        Border = toPointList(borderPointsValue),
+                        Game = game
                     };
 
                     continent.AddTerritories(territory);

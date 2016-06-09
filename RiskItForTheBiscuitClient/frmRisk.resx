@@ -162,7 +162,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;mainMenuStrip.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="pbRiskMap.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
@@ -193,10 +193,34 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pbRiskMap.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="overviewPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1264, 0</value>
+  </data>
+  <data name="overviewPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>320, 863</value>
+  </data>
+  <data name="overviewPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;overviewPanel.Name" xml:space="preserve">
+    <value>overviewPanel</value>
+  </data>
+  <data name="&gt;&gt;overviewPanel.Type" xml:space="preserve">
+    <value>RiskItForTheBiscuit.Risk.GameOverview, RiskItForTheBiscuitClient, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;overviewPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;overviewPanel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>25</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
@@ -574,6 +598,9 @@
         7eI0AVBB6FkQF9D6QxBveG793f/jq19YWNBaCSGYsGH/KyG3X3vt9U15/v8DaLwwjAmdOh0AAAAASUVO
         RK5CYII=
 </value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

@@ -2,6 +2,7 @@
 using RiskItForTheBiscuitGame.Risk;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace RiskItForTheBiscuitClient
         [STAThread]
         static void Main()
         {
-            Player playerYellow = new Player("Jona");
+            Player playerYellow = new Player("JonaJonaJonaJonaJonaJona");
             playerYellow.PlayerColor = Color.Yellow;
             Player playerBlue = new Player("Vince");
             playerBlue.PlayerColor = Color.BlueViolet;

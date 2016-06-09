@@ -9,6 +9,9 @@ namespace RiskItForTheBiscuit.Risk
 {
     public class Player
     {
+        public uint ExtraDefendingDice { get; set; }
+        public uint ExtraAttackingDice { get; set; }
+
         public Player(string nickName)
         {
             this.Nickname = nickName;

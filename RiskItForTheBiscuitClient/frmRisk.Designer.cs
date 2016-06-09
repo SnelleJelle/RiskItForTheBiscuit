@@ -1,4 +1,6 @@
-﻿namespace RiskItForTheBiscuitClient
+﻿using System.Drawing;
+
+namespace RiskItForTheBiscuitClient
 {
     partial class frmRisk
     {
@@ -34,12 +36,14 @@
             this.chatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pbRiskMap = new System.Windows.Forms.PictureBox();
+            this.overviewPanel = new RiskItForTheBiscuit.Risk.GameOverview();
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRiskMap)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenuStrip
             // 
+            this.mainMenuStrip.BackColor = System.Drawing.Color.Transparent;
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.playersToolStripMenuItem,
             this.chatToolStripMenuItem,
@@ -49,16 +53,19 @@
             // 
             // playersToolStripMenuItem
             // 
+            this.playersToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.playersToolStripMenuItem.Name = "playersToolStripMenuItem";
             resources.ApplyResources(this.playersToolStripMenuItem, "playersToolStripMenuItem");
             // 
             // chatToolStripMenuItem
             // 
+            this.chatToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.chatToolStripMenuItem.Name = "chatToolStripMenuItem";
             resources.ApplyResources(this.chatToolStripMenuItem, "chatToolStripMenuItem");
             // 
             // aboutToolStripMenuItem
             // 
+            this.aboutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             resources.ApplyResources(this.aboutToolStripMenuItem, "aboutToolStripMenuItem");
             // 
@@ -72,11 +79,19 @@
             this.pbRiskMap.Paint += new System.Windows.Forms.PaintEventHandler(this.pbRiskMap_Paint);
             this.pbRiskMap.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbRiskMap_MouseClick);
             // 
+            // overviewPanel
+            // 
+            this.overviewPanel.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.overviewPanel.Game = null;
+            resources.ApplyResources(this.overviewPanel, "overviewPanel");
+            this.overviewPanel.Name = "overviewPanel";
+            // 
             // frmRisk
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(148)))), ((int)(((byte)(173)))));
+            this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.overviewPanel);
             this.Controls.Add(this.pbRiskMap);
             this.Controls.Add(this.mainMenuStrip);
             this.KeyPreview = true;
@@ -99,6 +114,7 @@
         private System.Windows.Forms.ToolStripMenuItem playersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chatToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private RiskItForTheBiscuit.Risk.GameOverview overviewPanel;
     }
 }
 
