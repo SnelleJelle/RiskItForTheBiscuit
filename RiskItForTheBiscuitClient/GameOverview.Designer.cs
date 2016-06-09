@@ -83,7 +83,7 @@
             this.lblCurrentPlayer.BackColor = System.Drawing.Color.Transparent;
             this.lblCurrentPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentPlayer.ForeColor = System.Drawing.Color.White;
-            this.lblCurrentPlayer.Location = new System.Drawing.Point(4, 4);
+            this.lblCurrentPlayer.Location = new System.Drawing.Point(13, 4);
             this.lblCurrentPlayer.Name = "lblCurrentPlayer";
             this.lblCurrentPlayer.Size = new System.Drawing.Size(109, 16);
             this.lblCurrentPlayer.TabIndex = 1;
@@ -456,7 +456,7 @@
             this.lblAttack.BackColor = System.Drawing.Color.Transparent;
             this.lblAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAttack.ForeColor = System.Drawing.Color.White;
-            this.lblAttack.Location = new System.Drawing.Point(132, 28);
+            this.lblAttack.Location = new System.Drawing.Point(140, 28);
             this.lblAttack.Name = "lblAttack";
             this.lblAttack.Size = new System.Drawing.Size(45, 15);
             this.lblAttack.TabIndex = 16;

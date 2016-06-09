@@ -30,10 +30,9 @@ namespace RiskItForTheBiscuitClient
             this.Game = game;
             game.LabelFont = GraphicsExtension.labelFont;
             game.Start();
-
             overviewPanel.Game = game;
             overviewPanel.RefreshUi();
-            
+
             this.pbRiskMap.Size = backGround.Size;
 
             game.GetAllTerritories().First(t => t.Name == "Venezuela").NrOfSoldiers = 100;
