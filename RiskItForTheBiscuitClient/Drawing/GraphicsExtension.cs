@@ -1,4 +1,5 @@
 ﻿using RiskItForTheBiscuit.Risk;
+using RiskItForTheBiscuitClient.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -15,7 +16,7 @@ namespace RiskItForTheBiscuitClient.Drawing
     //TODO: calculate certain Classes at compile-Time for performance gain;
     public static class GraphicsExtension
     {
-        public static Image shield = Image.FromFile(@"../../Resources/Shield35x35.png");
+        public static Image shield = Resources.Shield35x35;
         public static Font shieldFont = new Font("Arial", 11);
         public static Font labelFont = new Font("Tahoma", 8);
 

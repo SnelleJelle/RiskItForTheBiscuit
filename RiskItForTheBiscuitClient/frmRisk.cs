@@ -34,9 +34,13 @@ namespace RiskItForTheBiscuitClient
             overviewPanel.RefreshUi();
 
             this.pbRiskMap.Size = backGround.Size;
-
-            game.GetAllTerritories().First(t => t.Name == "Venezuela").NrOfSoldiers = 100;
-            game.GetAllTerritories().First(t => t.Name == "Brazil").NrOfSoldiers = 100;
+            
+            // MAGIC
+            var pos = this.PointToScreen(territoryLabel1.Location);
+            pos = pbRiskMap.PointToClient(pos);
+            territoryLabel1.Parent = pbRiskMap;
+            //territoryLabel1.Location = pos;
+            //territoryLabel1.BackColor = Color.Transparent;
         }
 
         private void frmRisk_Load(object sender, EventArgs e)

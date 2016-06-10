@@ -36,6 +36,7 @@ namespace RiskItForTheBiscuitClient
             this.chatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pbRiskMap = new System.Windows.Forms.PictureBox();
+            this.territoryLabel1 = new RiskItForTheBiscuitClient.TerritoryLabel();
             this.overviewPanel = new RiskItForTheBiscuit.Risk.GameOverview();
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRiskMap)).BeginInit();
@@ -79,6 +80,12 @@ namespace RiskItForTheBiscuitClient
             this.pbRiskMap.Paint += new System.Windows.Forms.PaintEventHandler(this.pbRiskMap_Paint);
             this.pbRiskMap.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbRiskMap_MouseClick);
             // 
+            // territoryLabel1
+            // 
+            this.territoryLabel1.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.territoryLabel1, "territoryLabel1");
+            this.territoryLabel1.Name = "territoryLabel1";
+            // 
             // overviewPanel
             // 
             this.overviewPanel.BackColor = System.Drawing.Color.DarkSlateGray;
@@ -91,6 +98,7 @@ namespace RiskItForTheBiscuitClient
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.territoryLabel1);
             this.Controls.Add(this.overviewPanel);
             this.Controls.Add(this.pbRiskMap);
             this.Controls.Add(this.mainMenuStrip);
@@ -115,6 +123,7 @@ namespace RiskItForTheBiscuitClient
         private System.Windows.Forms.ToolStripMenuItem chatToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private RiskItForTheBiscuit.Risk.GameOverview overviewPanel;
+        private TerritoryLabel territoryLabel1;
     }
 }
 
