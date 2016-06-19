@@ -196,10 +196,10 @@
     <value>2</value>
   </data>
   <data name="territoryLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>311, 187</value>
+    <value>427, 311</value>
   </data>
   <data name="territoryLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 38</value>
+    <value>60, 35</value>
   </data>
   <data name="territoryLabel1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -622,9 +622,6 @@
         7eI0AVBB6FkQF9D6QxBveG793f/jq19YWNBaCSGYsGH/KyG3X3vt9U15/v8DaLwwjAmdOh0AAAAASUVO
         RK5CYII=
 </value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

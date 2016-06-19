@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Drawing\DrawingOptions.cs" />
     <Compile Include="Drawing\GraphicsExtension.cs" />
     <Compile Include="frmRisk.cs">
       <SubType>Form</SubType>

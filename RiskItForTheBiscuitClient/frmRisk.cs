@@ -28,17 +28,17 @@ namespace RiskItForTheBiscuitClient
             InitializeComponent();
 
             this.Game = game;
-            game.LabelFont = GraphicsExtension.labelFont;
+            game.LabelFont = DrawingOptions.LabelFont;
             game.Start();
             overviewPanel.Game = game;
             overviewPanel.RefreshUi();
 
             this.pbRiskMap.Size = backGround.Size;
-            
+
             // MAGIC
-            var pos = this.PointToScreen(territoryLabel1.Location);
-            pos = pbRiskMap.PointToClient(pos);
-            territoryLabel1.Parent = pbRiskMap;
+            //var pos = this.PointToScreen(territoryLabel1.Location);
+            //pos = pbRiskMap.PointToClient(pos);
+            // territoryLabel1.Parent = pbRiskMap;
             //territoryLabel1.Location = pos;
             //territoryLabel1.BackColor = Color.Transparent;
         }

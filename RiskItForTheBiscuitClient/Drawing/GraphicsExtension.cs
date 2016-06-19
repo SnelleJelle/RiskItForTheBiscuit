@@ -2,6 +2,7 @@
 using RiskItForTheBiscuitClient.Properties;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
@@ -16,10 +17,6 @@ namespace RiskItForTheBiscuitClient.Drawing
     //TODO: calculate certain Classes at compile-Time for performance gain;
     public static class GraphicsExtension
     {
-        public static Image shield = Resources.Shield35x35;
-        public static Font shieldFont = new Font("Arial", 11);
-        public static Font labelFont = new Font("Tahoma", 8);
-
         public static void DrawFullImg(this Graphics g, Image i, int x = 0, int y = 0)
         {
             g.DrawImageUnscaledAndClipped(i, new Rectangle(x, y, i.Width, i.Height));
@@ -33,8 +30,8 @@ namespace RiskItForTheBiscuitClient.Drawing
         private static void DrawShield(this Graphics g, int x, int y, Color color, uint n)
         {
             //img            
-            Rectangle shieldDimensions = new Rectangle(x, y, shield.Width, shield.Height);
-            g.DrawImageUnscaledAndClipped(shield, shieldDimensions);
+            Rectangle shieldDimensions = new Rectangle(x, y, DrawingOptions.ShieldImage.Width, DrawingOptions.ShieldImage.Height);
+            g.DrawImageUnscaledAndClipped(DrawingOptions.ShieldImage, shieldDimensions);
 
             //circle
             Rectangle circleDimensions = new Rectangle(shieldDimensions.X + 6, shieldDimensions.Y + 6, shieldDimensions.Width - 14, shieldDimensions.Height - 14);
@@ -43,14 +40,14 @@ namespace RiskItForTheBiscuitClient.Drawing
 
             //count
             Point p = new Point(circleDimensions.X + 5, shieldDimensions.Y + 9);
-            g.DrawString(n.ToString(), shieldFont, new SolidBrush(Color.Black), p);
+            g.DrawString(n.ToString(), DrawingOptions.ShieldFont, new SolidBrush(Color.Black), p);
         }
 
-        public static Territory DrawLabel(this Graphics g, Territory territory, bool selected = false)
+        public static Size DrawLabel(this Graphics g, Territory territory, Point offset, bool selected = false)
         {
-            Size textSize = TextRenderer.MeasureText(territory.Name, labelFont);
-            Point p = territory.LabelCoordinates;
-            Rectangle border = new Rectangle(p.X, p.Y, (int)textSize.Width, (int)textSize.Height);
+            Size textSize = TextRenderer.MeasureText(territory.Name, DrawingOptions.LabelFont);
+            Point location = territory.LabelCoordinates + (Size)offset;
+            Rectangle border = new Rectangle(location.X, location.Y, (int)textSize.Width, (int)textSize.Height);
             Color playerColor = territory.Owner.PlayerColor;
             Color backgroundColor = Color.FromArgb(150, playerColor.R, playerColor.G, playerColor.B);
 
@@ -63,17 +60,21 @@ namespace RiskItForTheBiscuitClient.Drawing
             g.DrawRectangle(new Pen(borderColor, 2f), backgroundBounds);
 
             //name
-            g.DrawString(territory.Name, labelFont, Brushes.Black, p);
+            g.DrawString(territory.Name, DrawingOptions.LabelFont, Brushes.Black, location);
 
             //shield
             g.DrawShield(new Point(border.X + border.Width, border.Y - 10), playerColor, territory.NrOfSoldiers);
+            return new Size(backgroundBounds.Width + DrawingOptions.ShieldImage.Width / 2 + 3, DrawingOptions.ShieldImage.Height);
+        }
 
-            return territory;
+        public static Size DrawLabel(this Graphics g, Territory territory, bool selected = false)
+        {
+            return g.DrawLabel(territory, new Point(0, 0), selected); ;
         }
 
         public static Territory DrawAttackableLabel(this Graphics g, Territory territory)
         {
-            Size s = TextRenderer.MeasureText(territory.Name, labelFont);
+            Size s = TextRenderer.MeasureText(territory.Name, DrawingOptions.LabelFont);
             Point p = territory.LabelCoordinates;
             Rectangle border = new Rectangle(p.X - 5, p.Y - 3, (int)s.Width + 20, (int)s.Height + 5);            
 

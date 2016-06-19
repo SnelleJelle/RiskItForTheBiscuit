@@ -98,7 +98,7 @@ namespace RiskItForTheBiscuitClient
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.Controls.Add(this.territoryLabel1);
+            this.pbRiskMap.Controls.Add(this.territoryLabel1);
             this.Controls.Add(this.overviewPanel);
             this.Controls.Add(this.pbRiskMap);
             this.Controls.Add(this.mainMenuStrip);

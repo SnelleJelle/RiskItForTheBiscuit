@@ -16,12 +16,14 @@ namespace RiskItForTheBiscuitClient
 {
     public partial class TerritoryLabel : Control
     {
-        public Territory Territory { get; set; } = new Territory("sample")
+        private Point drawingOffset = new Point(6, 10);
+
+        public Territory Territory { get; set; } = new Territory("samplesamplesamplesample")
         {
             NrOfSoldiers = 1,
             Owner = new Player("")
             {
-                PlayerColor = Color.AliceBlue
+                PlayerColor = Color.OrangeRed
             }
         };
 
@@ -29,21 +31,32 @@ namespace RiskItForTheBiscuitClient
         {
             InitializeComponent();
             this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            this.BackColor = Color.Transparent;
         }
 
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);
-
             Graphics g = pe.Graphics;
 
-            //Rectangle bg = new Rectangle(new Point(0, 0), this.Size);         
+            // settings 
+            g.SmoothingMode = SmoothingMode.HighQuality;            
 
-            //g.FillRectangle(Brushes.Transparent, bg);
+            Rectangle bounds = new Rectangle(Point.Empty, new Size(this.Width - 1, this.Height - 1));
+            g.DrawRectangle(Pens.Red, bounds);
 
-            //Rectangle r = new Rectangle(0, 0, 45, 25);
-            //g.DrawRectangle(SystemPens.ActiveBorder, r);
-            g.DrawLabel(Territory);
+            this.Size = g.DrawLabel(Territory, drawingOffset);
+        }
+
+        public void CorrectLocation()
+        {
+            this.Location = Location + (Size)drawingOffset;
+        }
+
+        protected override void OnParentChanged(EventArgs e)
+        {
+            base.OnParentChanged(e);
+            CorrectLocation();
         }
     }
 }
