@@ -18,7 +18,7 @@ namespace RiskItForTheBiscuitClient
     {
         private Point drawingOffset = new Point(6, 10);
 
-        public Territory Territory { get; set; } = new Territory("samplesamplesamplesample")
+        public Territory Territory { get; set; } = new Territory("jonaisafaggot")
         {
             NrOfSoldiers = 1,
             Owner = new Player("")

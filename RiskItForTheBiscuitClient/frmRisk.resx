@@ -196,10 +196,10 @@
     <value>2</value>
   </data>
   <data name="territoryLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>427, 311</value>
+    <value>426, 352</value>
   </data>
   <data name="territoryLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 35</value>
+    <value>113, 35</value>
   </data>
   <data name="territoryLabel1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>

@@ -85,6 +85,7 @@ namespace RiskItForTheBiscuitClient
             this.territoryLabel1.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.territoryLabel1, "territoryLabel1");
             this.territoryLabel1.Name = "territoryLabel1";
+            this.territoryLabel1.Click += new System.EventHandler(this.territoryLabel1_Click);
             // 
             // overviewPanel
             // 
@@ -98,7 +99,7 @@ namespace RiskItForTheBiscuitClient
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.pbRiskMap.Controls.Add(this.territoryLabel1);
+            this.Controls.Add(this.territoryLabel1);
             this.Controls.Add(this.overviewPanel);
             this.Controls.Add(this.pbRiskMap);
             this.Controls.Add(this.mainMenuStrip);
